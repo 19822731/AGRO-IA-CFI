@@ -1,0 +1,11 @@
+Concepto,Valor_TM
+Existencia_Inicial_31-05-2025,290.000
+Produccion_Proyectada_Tucuman,1.810.000
+Produccion_Proyectada_Salta_Jujuy,800.000
+Oferta_Total_Proyectada,2.900.000
+Demanda_Interna_Proyectada,1.250.000
+Demanda_Alcohol_Proyectada,650.000
+Exportaciones_Proyectadas,500.000
+Demanda_Total_Proyectada,2.400.000
+Existencia_Final,110.000
+Excedente,390.000

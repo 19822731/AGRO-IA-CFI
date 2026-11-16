@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: El FES en Acción</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .bar-container {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            width: 80px;
+        }
+        .bar-base {
+            background-color: #6b7280; /* gray-500 */
+            width: 100%;
+            transition: height 0.5s ease-out;
+        }
+        .bar-fes {
+            background-color: #22c55e; /* green-500 */
+            width: 100%;
+            transition: height 0.5s ease-out;
+            position: relative;
+        }
+         .bar-fes::after {
+            content: attr(data-label);
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .bar-container:hover .bar-fes::after {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-8 max-w-5xl">
+        <!-- Título Principal -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-black text-green-800">El FES en Acción: Un Ejemplo Gráfico</h1>
+            <p class="text-lg text-gray-600 mt-2">Cómo el Precio Sostén Diferencial protege a cada productor.</p>
+        </header>
+
+        <!-- Contenedor Principal -->
+        <div class="bg-white p-6 sm:p-10 rounded-2xl shadow-xl border border-gray-200">
+
+            <!-- 1. Escenario Hipotético -->
+            <section class="mb-12 text-center">
+                <h2 class="text-2xl font-bold text-gray-800">Escenario: El Mercado Cae al Nivel Mínimo</h2>
+                <p class="text-gray-600 mt-2">El Precio de Referencia Dinámico (PRD) alcanza el <span class="font-bold">Precio Sostén Base</span>, activando la red de seguridad del FES.</p>
+                <div class="mt-4 inline-block bg-gray-800 text-white p-4 rounded-lg">
+                    <span class="text-lg">Precio Sostén Base =</span>
+                    <span class="text-3xl font-bold">$20.000</span>
+                    <span class="text-lg">(Valor Hipotético)</span>
+                </div>
+            </section>
+
+            <!-- 2. Gráfico de Barras Comparativo -->
+            <section class="pt-8 border-t-2 border-dashed border-gray-200">
+                <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">Visualización del Aporte del FES por Estrato</h2>
+                <div class="flex flex-col sm:flex-row justify-around items-end space-y-8 sm:space-y-0 sm:space-x-4">
+                    
+                    <!-- Estrato 1 -->
+                    <div class="text-center">
+                        <p class="font-bold text-2xl text-green-700">$25.000</p>
+                        <div class="bar-container mx-auto" style="height: 250px;">
+                            <div class="bar-fes" style="height: 20%;" data-label="+25% FES"></div>
+                            <div class="bar-base" style="height: 80%;"></div>
+                        </div>
+                        <div class="mt-3">
+                            <p class="font-bold">Estrato 1</p>
+                            <p class="text-sm text-gray-500">&lt; 50 ha</p>
+                        </div>
+                    </div>
+
+                    <!-- Estrato 2 -->
+                    <div class="text-center">
+                        <p class="font-bold text-2xl text-green-700">$23.000</p>
+                        <div class="bar-container mx-auto" style="height: 230px;">
+                            <div class="bar-fes" style="height: 13.04%;" data-label="+15% FES"></div>
+                            <div class="bar-base" style="height: 86.96%;"></div>
+                        </div>
+                        <div class="mt-3">
+                            <p class="font-bold">Estrato 2</p>
+                            <p class="text-sm text-gray-500">51-150 ha</p>
+                        </div>
+                    </div>
+
+                    <!-- Estrato 3 -->
+                    <div class="text-center">
+                        <p class="font-bold text-2xl text-green-700">$22.000</p>
+                        <div class="bar-container mx-auto" style="height: 220px;">
+                            <div class="bar-fes" style="height: 9.09%;" data-label="+10% FES"></div>
+                            <div class="bar-base" style="height: 90.91%;"></div>
+                        </div>
+                         <div class="mt-3">
+                            <p class="font-bold">Estrato 3</p>
+                            <p class="text-sm text-gray-500">151-250 ha</p>
+                        </div>
+                    </div>
+
+                    <!-- Estrato 4 -->
+                    <div class="text-center">
+                        <p class="font-bold text-2xl text-green-700">$21.000</p>
+                        <div class="bar-container mx-auto" style="height: 210px;">
+                            <div class="bar-fes" style="height: 4.76%;" data-label="+5% FES"></div>
+                            <div class="bar-base" style="height: 95.24%;"></div>
+                        </div>
+                         <div class="mt-3">
+                            <p class="font-bold">Estrato 4</p>
+                            <p class="text-sm text-gray-500">&gt; 250 ha</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="mt-6 flex justify-center items-center space-x-6 text-sm">
+                    <div class="flex items-center"><div class="w-4 h-4 rounded-sm bg-gray-500 mr-2"></div><span>Precio Sostén Base</span></div>
+                    <div class="flex items-center"><div class="w-4 h-4 rounded-sm bg-green-500 mr-2"></div><span>Aporte del FES</span></div>
+                </div>
+            </section>
+            
+            <!-- 3. Conclusión del Mecanismo -->
+            <section class="mt-12 pt-8 border-t-2 border-dashed border-gray-200">
+                 <div class="bg-green-50 border-l-4 border-green-500 text-green-800 p-6 rounded-r-lg">
+                    <h3 class="text-xl font-bold flex items-center">
+                       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                        Análisis del Resultado
+                    </h3>
+                    <p class="mt-2">El gráfico demuestra que, aunque el precio de mercado sea el mismo para todos ($20.000), el <span class="font-bold">ingreso final del productor varía significativamente gracias al FES</span>. El sistema no solo crea una red de seguridad, sino que la distribuye con un criterio de equidad, asegurando la viabilidad de los productores más pequeños y fortaleciendo todo el tejido social y productivo.</p>
+                </div>
+            </section>
+        </div>
+        
+        <footer class="text-center mt-12 text-gray-500 text-sm">
+            <p>&copy; 2025 Agro-IA. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: El Fondo de Estabilización Social (FES)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-8 max-w-5xl">
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-black text-green-800">El Fondo de Estabilización Social (FES)</h1>
+            <p class="text-lg text-gray-600 mt-2">Un Modelo de Equidad Social y Seguridad para el Productor</p>
+        </header>
+
+        <div class="bg-white p-6 sm:p-10 rounded-2xl shadow-xl border border-gray-200">
+
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-center text-gray-800 mb-2">Alianza Público-Privada: Ingresos Compartidos</h2>
+                <p class="text-center text-gray-600 mb-8">Cada transacción genera valor para la plataforma y para la red de seguridad social.</p>
+                <div class="max-w-2xl mx-auto bg-gray-50 p-6 rounded-xl border flex flex-col md:flex-row items-center gap-6">
+                    <div class="text-center">
+                        <p class="text-lg font-semibold">Comisión Total por Transacción</p>
+                        <p class="text-6xl font-black text-gray-800">2%</p>
+                    </div>
+                    <div class="text-5xl font-light text-gray-400 hidden md:block">→</div>
+                     <div class="text-5xl font-light text-gray-400 md:hidden">↓</div>
+                    <div class="flex-grow grid grid-cols-2 gap-4 text-center">
+                        <div class="bg-blue-100 p-4 rounded-lg border border-blue-200">
+                            <p class="text-3xl font-bold text-blue-800">1.5%</p>
+                            <p class="font-semibold text-blue-900">Para Agro-IA</p>
+                            <p class="text-xs text-gray-600">Operación y rentabilidad.</p>
+                        </div>
+                        <div class="bg-green-100 p-4 rounded-lg border border-green-200">
+                            <p class="text-3xl font-bold text-green-800">0.5%</p>
+                            <p class="font-semibold text-green-900">Para el FES</p>
+                             <p class="text-xs text-gray-600">Fondo estatal de estabilización.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-12 pt-8 border-t-2 border-dashed border-gray-200">
+                 <h2 class="text-2xl font-bold text-center text-gray-800 mb-2">El Mecanismo: Precio Sostén Diferencial por Estrato</h2>
+                 <p class="text-center text-gray-600 mb-8">El FES financia un precio mínimo garantizado, distribuyendo el apoyo de forma inteligente: más ayuda para el más vulnerable.</p>
+                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="bg-green-100 p-5 rounded-lg border-2 border-green-300 transform hover:scale-105 transition-transform duration-300 shadow-lg">
+                        <p class="font-bold text-green-900">Estrato 1</p>
+                        <p class="text-sm text-gray-600">&lt; 50 Hectáreas</p>
+                        <p class="text-3xl font-black text-green-700 my-2">+ 25%</p>
+                        <p class="text-xs font-semibold">Máxima protección a la agricultura familiar.</p>
+                    </div>
+                    <div class="bg-green-100 p-5 rounded-lg border border-green-300 transform hover:scale-105 transition-transform duration-300">
+                        <p class="font-bold text-green-900">Estrato 2</p>
+                        <p class="text-sm text-gray-600">51-150 Hectáreas</p>
+                        <p class="text-3xl font-black text-green-700 my-2">+ 15%</p>
+                         <p class="text-xs font-semibold">Apoyo a productores pequeños y medianos.</p>
+                    </div>
+                    <div class="bg-green-100 p-5 rounded-lg border border-green-300 transform hover:scale-105 transition-transform duration-300">
+                         <p class="font-bold text-green-900">Estrato 3</p>
+                        <p class="text-sm text-gray-600">151-250 Hectáreas</p>
+                        <p class="text-3xl font-black text-green-700 my-2">+ 10%</p>
+                         <p class="text-xs font-semibold">Sostenimiento para productores establecidos.</p>
+                    </div>
+                     <div class="bg-gray-100 p-5 rounded-lg border border-gray-300 transform hover:scale-105 transition-transform duration-300">
+                        <p class="font-bold text-gray-700">Estrato 4</p>
+                        <p class="text-sm text-gray-500">&gt; 250 Hectáreas</p>
+                        <p class="text-3xl font-black text-gray-500 my-2">+ 5%</p>
+                        <p class="text-xs font-semibold">Productores competitivos a gran escala.</p>
+                    </div>
+                 </div>
+            </section>
+            
+            <section class="pt-8 border-t-2 border-dashed border-gray-200">
+                 <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">La Estrategia de Doble Motor</h2>
+                 <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-xl border">
+                        <h3 class="text-xl font-bold text-gray-700 flex items-center gap-3">🛡️ El Piso de Seguridad (FES)</h3>
+                        <p class="mt-2 text-gray-600">El FES actúa como una red de contención social. Asegura una rentabilidad mínima, protege a los productores más pequeños y fomenta la participación en el mercado formal al ofrecer un beneficio tangible e inalcanzable en la informalidad.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-xl border">
+                        <h3 class="text-xl font-bold text-gray-700 flex items-center gap-3">🚀 El Techo de Rentabilidad (IA)</h3>
+                        <p class="mt-2 text-gray-600">Una vez garantizado el "piso", el Cerebro Predictivo de Agro-IA trabaja para maximizar el valor para TODOS. Gestiona el <span class="font-bold">Saldo Exportable Dinámico</span> para buscar el mejor precio promedio, elevando el techo de la rentabilidad provincial.</p>
+                    </div>
+                 </div>
+            </section>
+        </div>
+        
+        <footer class="text-center mt-12 text-gray-500 text-sm">
+            <p>&copy; 2024 Agro-IA. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

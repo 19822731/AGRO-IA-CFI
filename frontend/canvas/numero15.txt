@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Banda de Precios con y sin FES</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+        }
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-8 max-w-5xl">
+        <!-- Título Principal -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-black text-gray-900">El Impacto del Ecosistema en el Precio Final</h1>
+            <p class="text-lg text-gray-600 mt-2">Una comparación gráfica entre un mercado volátil y un ecosistema optimizado y protegido.</p>
+        </header>
+
+        <!-- Contenedor Principal -->
+        <div class="bg-white p-6 sm:p-10 rounded-2xl shadow-xl border border-gray-200">
+
+            <!-- Gráfico de Líneas -->
+            <section>
+                <h2 class="text-2xl font-bold text-center text-gray-800 mb-8">Evolución del Precio Durante la Campaña</h2>
+                <div class="chart-container bg-gray-50 rounded-lg p-4">
+                    <svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet">
+                        <!-- Ejes -->
+                        <line x1="50" y1="350" x2="750" y2="350" stroke="#9ca3af" stroke-width="2"></line>
+                        <line x1="50" y1="50" x2="50" y2="350" stroke="#9ca3af" stroke-width="2"></line>
+                        
+                        <!-- Labels Ejes -->
+                        <text x="400" y="385" text-anchor="middle" font-family="Inter" fill="#6b7280">Tiempo (Meses de la Campaña)</text>
+                        <text x="20" y="200" text-anchor="middle" transform="rotate(-90, 20, 200)" font-family="Inter" fill="#6b7280">Precio / TN</text>
+
+                        <!-- Línea de Precio Sostén -->
+                        <line x1="50" y1="250" x2="750" y2="250" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,5"></line>
+                        <text x="740" y="240" text-anchor="end" font-family="Inter" fill="#ef4444" font-weight="bold">Precio Sostén Base ($20.000)</text>
+
+                        <!-- Área de Ganancia Protegida -->
+                        <polygon points="300,250 350,250 400,250 450,250 500,250 500,320 450,340 400,345 350,330 300,290" fill="#dcfce7" opacity="0.6"></polygon>
+                        <text x="400" y="275" text-anchor="middle" font-family="Inter" fill="#166534" font-weight="bold" font-size="0.8em">Aporte del FES</text>
+
+                        <!-- Línea de Mercado sin FES (Volátil) -->
+                        <path d="M 50 150 Q 150 50, 250 180 T 300 290 C 350 330, 400 345, 450 340 T 500 320 C 550 280, 600 100, 700 120" stroke="#60a5fa" stroke-width="3" stroke-dasharray="8,8" fill="none"></path>
+                        
+                        <!-- Línea de Precio con FES (Protegido) -->
+                        <path d="M 50 150 Q 150 50, 250 180 T 300 250 L 500 250 C 550 250, 600 100, 700 120" stroke="#16a34a" stroke-width="4" fill="none"></path>
+                        
+                        <!-- Línea de Precio con Agro-IA (Optimizado) -->
+                        <path d="M 50 150 Q 150 60, 250 170 T 300 220 C 350 200, 400 210, 450 200 T 500 220 C 550 190, 600 160, 700 140" stroke="#c026d3" stroke-width="4" fill="none"></path>
+
+                    </svg>
+                </div>
+                <div class="mt-6 flex justify-center items-center flex-wrap gap-x-6 gap-y-2 text-sm">
+                    <div class="flex items-center"><div class="w-4 h-1 rounded-sm bg-blue-400 border-blue-400 border-dashed border-2 mr-2"></div><span>Precio Mercado (sin Agro-IA)</span></div>
+                    <div class="flex items-center"><div class="w-4 h-1 rounded-sm bg-purple-600 mr-2"></div><span>Precio Optimizado (con Agro-IA)</span></div>
+                    <div class="flex items-center"><div class="w-4 h-1 rounded-sm bg-green-500 mr-2"></div><span>Precio con FES (Red de Seguridad)</span></div>
+                </div>
+            </section>
+
+            <!-- Análisis del Gráfico -->
+            <section class="mt-12 pt-8 border-t-2 border-dashed border-gray-200">
+                <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Análisis del Gráfico</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="font-bold text-lg text-gray-800">El Doble Nivel de Protección</h3>
+                        <p class="mt-2 text-gray-600"><strong class="text-purple-700">1. Optimización Proactiva (Línea Violeta):</strong> El primer objetivo de la IA es <span class="font-weight-bold">evitar las caídas bruscas</span>. Al gestionar el "Saldo Exportable Dinámico" y las comisiones, suaviza la volatilidad del mercado, manteniendo un precio promedio más alto y estable. Esto reduce la frecuencia y la necesidad de usar el fondo de estabilización.</p>
+                        <p class="mt-2 text-gray-600"><strong class="text-green-700">2. Red de Seguridad (Línea Verde):</strong> Si a pesar de la optimización, un evento de mercado extremo hunde los precios, el FES actúa como la <span class="font-weight-bold">última barrera de protección</span>. La línea verde muestra cómo el FES establece un piso de rentabilidad ($20.000) inquebrantable, eliminando por completo el riesgo de precios ruinosos.</p>
+                    </div>
+                     <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                        <h3 class="font-bold text-lg text-green-800">La Seguridad del Ecosistema Agro-IA</h3>
+                        <p class="mt-2 text-green-900">El resultado es un sistema de doble capa: la IA trabaja para maximizar la rentabilidad y minimizar la volatilidad, mientras que el FES garantiza que, pase lo que pase, el productor siempre estará protegido. Se pasa de un mercado de alto riesgo a un ecosistema de <span class="font-bold">riesgo gestionado y rentabilidad optimizada.</span></p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        
+        <footer class="text-center mt-12 text-gray-500 text-sm">
+            <p>&copy; 2025 Agro-IA. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

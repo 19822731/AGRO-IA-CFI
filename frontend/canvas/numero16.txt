@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: El Beneficio Exponencial de la Expansión</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-8 max-w-5xl">
+        <!-- Título Principal -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-black text-purple-800">El Beneficio Exponencial de la Expansión</h1>
+            <p class="text-lg text-gray-600 mt-2">Cómo la internacionalización de Agro-IA genera ingresos globales para el FES provincial.</p>
+        </header>
+
+        <!-- Contenedor Principal -->
+        <div class="bg-white p-6 sm:p-10 rounded-2xl shadow-xl border border-gray-200">
+
+            <!-- 1. Modelo Local -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-gray-800 text-center">Fase 1: El Modelo Local</h2>
+                <div class="mt-6 flow-diagram-local flex flex-col items-center">
+                    <div class="bg-gray-50 p-4 rounded-lg border w-full max-w-md text-center">
+                        <p class="font-bold">Transacción en Mercado Interno</p>
+                        <p class="text-sm text-gray-500">(Productor Local → Comprador Local)</p>
+                    </div>
+                    <div class="text-2xl my-2 text-gray-400">↓</div>
+                    <div class="bg-gray-100 p-4 rounded-lg border w-full max-w-md text-center">
+                        <p class="font-semibold">Comisión Total: 2.0%</p>
+                    </div>
+                     <div class="text-2xl my-2 text-gray-400">↓</div>
+                    <div class="w-full max-w-md grid grid-cols-2 gap-4">
+                        <div class="bg-blue-100 p-3 rounded-lg border border-blue-200 text-center">
+                            <p class="font-bold text-blue-800">1.5%</p>
+                            <p class="text-sm text-blue-900">Para Agro-IA</p>
+                        </div>
+                        <div class="bg-green-100 p-3 rounded-lg border border-green-200 text-center">
+                             <p class="font-bold text-green-800">0.5%</p>
+                            <p class="text-sm text-green-900">Al FES Provincial</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. Modelo de Expansión -->
+            <section class="pt-12 border-t-2 border-dashed border-gray-200">
+                <h2 class="text-2xl font-bold text-gray-800 text-center">Fase 2: El Modelo de Expansión Regional</h2>
+                <p class="text-center text-gray-600 mt-2 mb-8">Agro-IA se expande y es adoptado por otros países, creando un mercado regional.</p>
+                
+                <div class="flow-diagram-expansion flex flex-col items-center">
+                    <div class="bg-purple-50 p-4 rounded-lg border border-purple-200 w-full max-w-md text-center">
+                        <p class="font-bold text-purple-900">Transacción entre 3ros Países</p>
+                        <p class="text-sm text-purple-700">(Ej: Productor de Perú → Comprador de Chile)</p>
+                    </div>
+                    <div class="text-2xl my-2 text-gray-400">↓</div>
+                    <div class="bg-gray-100 p-4 rounded-lg border w-full max-w-md text-center">
+                        <p class="font-semibold">Comisión Total: 2.0%</p>
+                    </div>
+                    <div class="text-2xl my-2 text-gray-400">↓</div>
+                    <div class="w-full max-w-md grid grid-cols-2 gap-4">
+                        <div class="bg-blue-100 p-3 rounded-lg border border-blue-200 text-center">
+                            <p class="font-bold text-blue-800">1.75%</p>
+                            <p class="text-sm text-blue-900">Para Agro-IA</p>
+                        </div>
+                        <div class="relative bg-green-100 p-3 rounded-lg border-2 border-green-400 text-center shadow-lg">
+                            <div class="absolute -top-3 -right-3 bg-green-600 text-white text-xs font-bold px-2 py-0.5 rounded-full animate-pulse">NUEVO</div>
+                             <p class="font-bold text-green-800">0.25%</p>
+                            <p class="text-sm text-green-900">Al FES Provincial (Socio Fundador)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Conclusión Estratégica -->
+            <section class="mt-16 pt-8 border-t-2 border-dashed border-gray-200">
+                <div class="bg-indigo-100 border-l-4 border-indigo-500 text-indigo-800 p-6 rounded-r-lg">
+                    <h3 class="text-xl font-bold flex items-center">
+                       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                       </svg>
+                        El Resultado: Un Círculo Virtuoso Global
+                    </h3>
+                    <p class="mt-2">Al ser socio estratégico y habilitador del modelo, el Estado Provincial no solo fomenta su economía local. Se convierte en <span class="font-bold">exportador de un modelo tecnológico y financiero</span>. Esto genera un flujo de ingresos constante desde el comercio internacional hacia el Fondo de Estabilización, fortaleciendo la red de seguridad de los productores locales sin necesidad de aumentar las comisiones internas. A más transacciones globales en la plataforma, más robusto se vuelve el FES provincial.</p>
+                </div>
+            </section>
+
+        </div>
+        
+        <footer class="text-center mt-12 text-gray-500 text-sm">
+            <p>&copy; 2025 Agro-IA. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+</body>
+</html>

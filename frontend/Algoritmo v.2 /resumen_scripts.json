@@ -1,0 +1,94 @@
+[
+    {
+        "filename": "calculadora_paridad.py",
+        "description": "Calcula el \"Precio de Paridad de Exportación\" para el azúcar desde Argentina. Toma el precio internacional (Contrato #5), le resta un ajuste fijo y los costos de exportación, y convierte el resultado a pesos argentinos (ARS) por bolsa de 50kg."
+    },
+    {
+        "filename": "cif_santiago.py",
+        "description": "Calcula el precio \"CIF Santiago\" para el azúcar en Chile. Toma el precio internacional (Contrato #5), le resta un ajuste fijo, le suma el costo CIF, y convierte el resultado a pesos chilenos (CLP) por tonelada."
+    },
+    {
+        "filename": "actualizar_datos_testing.py",
+        "description": "Script para actualizar datos. Utiliza la librería `investpy` para descargar la información más reciente de diversos activos financieros (commodities, divisas, etc.) y la guarda en una carpeta de prueba (`datos_actualizados_test`) para su revisión."
+    },
+    {
+        "filename": "analisis_campeon_v2.py",
+        "description": "Entrena modelos de Machine Learning. Carga el dataset maestro, genera una gran cantidad de indicadores técnicos (RSI, Bandas de Bollinger, etc.) y entrena dos modelos `RandomForestRegressor` para predecir los precios futuros de los contratos de azúcar #11 y #5. Guarda las métricas de rendimiento en un CSV."
+    },
+    {
+        "filename": "analisis_comparativo_lstm_360d.py",
+        "description": "Compara el rendimiento de diferentes modelos (Random Forest, XGBoost y LSTM con 360 días de memoria) para predecir los precios del azúcar. Guarda un informe comparativo con las métricas de cada modelo."
+    },
+    {
+        "filename": "comparador_mercados.py",
+        "description": "Herramienta de soporte a decisiones. Compara la rentabilidad de vender azúcar en el mercado local argentino frente a exportarla (usando el cálculo de `calculadora_paridad.py`) y emite una recomendación."
+    },
+    {
+        "filename": "crear_dataset_maestro_v2.py",
+        "description": "Script de consolidación de datos. Lee múltiples archivos CSV y Excel, los limpia, estandariza y une en un único \"dataset maestro\" (`dataset_maestro_COMPLETO.csv`) que sirve de base para los demás análisis."
+    },
+    {
+        "filename": "entrenar_lstm_optimizado.py",
+        "description": "Se especializa en entrenar un modelo LSTM optimizado para predecir el precio del contrato de azúcar #5. Utiliza hiperparámetros predefinidos y compara el rendimiento del modelo final contra un modelo campeón anterior (XGBoost)."
+    },
+    {
+        "filename": "entrenar_modelo_consumo.py",
+        "description": "Entrena un modelo `SARIMAX` para pronosticar el consumo diario de azúcar. Utiliza una \"memoria\" o historial de ejecuciones para probar primero las configuraciones de modelos que han funcionado bien en el pasado, y luego realiza una búsqueda abierta de nuevos parámetros. Guarda el modelo ganador y su rendimiento."
+    },
+    {
+        "filename": "entrenar_sarima_consumo.py",
+        "description": "Script más simple que entrena un modelo `Auto-SARIMA` para pronosticar el consumo *mensual* de azúcar a partir del archivo \"Balance Azucarero\". Su objetivo es generar un pronóstico a 12 meses y guardarlo en un archivo CSV."
+    },
+    {
+        "filename": "evaluar_costo_prd.py",
+        "description": "Define una función de \"costo\" para evaluar qué tan buena es una simulación. Calcula una puntuación combinada basada en tres factores: la volatilidad del precio (PRD), la desviación del stock real vs. el esperado, y una penalización si el stock se sale de un rango aceptable."
+    },
+    {
+        "filename": "generar_historial_operaciones.py",
+        "description": "Crea un historial de datos diarios simulados (producción, consumo y precio) para los años 2024 y 2025. Utiliza supuestos anuales del \"Balance Azucarero\" y les aplica una variación aleatoria diaria para generar un dataset realista que usan otros scripts."
+    },
+    {
+        "filename": "gestor_entrenamiento_semanal.py",
+        "description": "Orquesta el reentrenamiento de modelos de pronóstico de consumo. Implementa una estrategia de \"Campeón vs. Contendiente\": carga el mejor modelo actual (campeón), entrena uno nuevo (contendiente) y si el nuevo es mejor, lo promueve. Guarda un historial de cada \"competencia\"."
+    },
+    {
+        "filename": "motor_matching_transacciones.py",
+        "description": "Simula un motor de emparejamiento de órdenes de compra y venta. Genera órdenes de ejemplo alrededor de un Precio de Referencia Dinámico (PRD) y las empareja priorizando las que están más cerca de dicho precio, mostrando las operaciones ejecutadas y las pendientes."
+    },
+    {
+        "filename": "motor_prd_diario.py",
+        "description": "Es el núcleo del sistema de precios dinámicos. Calcula el \"Precio de Referencia Dinámico\" (PRD) para un día específico. Compara el estado real del negocio (stock, consumo) con el plan estratégico y ajusta el precio base para incentivar o moderar la demanda, usando un factor de sensibilidad dinámico (K)."
+    },
+    {
+        "filename": "optimizar_parametros_prd.py",
+        "description": "Script de optimización que busca la mejor combinación de parámetros para el `motor_prd_diario.py`. Prueba miles de combinaciones de factores de sensibilidad (K), umbrales y pesos de la función de costo para encontrar la configuración que minimice el \"costo\" (volatilidad y desviaciones) en diferentes escenarios de backtesting. Utiliza procesamiento paralelo para acelerar la búsqueda."
+    },
+    {
+        "filename": "optimizar_xgb_contrato11.py",
+        "description": "Se enfoca en encontrar los mejores hiperparámetros para un modelo `XGBoost` que predice el precio del contrato de azúcar #11. Utiliza `GridSearchCV` para realizar un ajuste fino sobre una parrilla de parámetros predefinida."
+    },
+    {
+        "filename": "panel_de_control.py",
+        "description": "Actúa como el \"informe principal\" del sistema. Ejecuta el `motor_prd_diario.py` con los parámetros óptimos ya encontrados y presenta un informe consolidado que muestra el Precio de Referencia Dinámico (PRD) del día y un análisis táctico de la situación del mercado."
+    },
+    {
+        "filename": "predecir_lstm_arima_contrato5.py",
+        "description": "Implementa un modelo híbrido `LSTM+ARIMA` para predecir el precio del contrato de azúcar #5. Primero, un modelo LSTM hace una predicción inicial, y luego un modelo ARIMA se entrena sobre los errores (residuos) del LSTM para corregir y refinar la predicción final."
+    },
+    {
+        "filename": "predecir_lstm_arima_garch_contrato5.py",
+        "description": "Es una versión más avanzada del anterior. Implementa un modelo de tres etapas `LSTM+ARIMA+GARCH`. Después de que el ARIMA corrige la predicción del LSTM, un modelo GARCH se utiliza para modelar la volatilidad de los errores restantes, permitiendo generar intervalos de confianza más precisos para la predicción final. También guarda un historial de su rendimiento para aprender en futuras ejecuciones."
+    },
+    {
+        "filename": "predecir_residuales.py",
+        "description": "Similar a los scripts anteriores, implementa un modelo híbrido `XGBoost+ARIMA`. Primero, un modelo XGBoost predice el precio del azúcar, y luego un modelo ARIMA se entrena sobre los errores (residuos) del XGBoost para corregir la predicción."
+    },
+    {
+        "filename": "preparar_features_exogenas.py",
+        "description": "Script de pre-procesamiento que toma una serie temporal de precios (en este caso, el precio del mercado interno), la descompone usando una técnica llamada STL para aislar su componente estacional (patrones que se repiten anualmente), y guarda esta \"estacionalidad\" como una nueva feature en un archivo CSV para ser usada por otros modelos."
+    },
+    {
+        "filename": "simulacion_balance.py",
+        "description": "Simula el balance azucarero para todo un año. Basado en supuestos anuales de producción y consumo, distribuye estos valores a lo largo de los meses (considerando el patrón de la zafra) y calcula el stock final y la cantidad de azúcar que se podría exportar cada mes. Genera tanto un plan mensual como uno diario."
+    }
+]

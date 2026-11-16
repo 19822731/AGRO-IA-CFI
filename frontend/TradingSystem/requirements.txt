@@ -1,0 +1,8 @@
+pandas
+numpy
+pyarrow
+notebook
+lightgbm
+scikit-learn
+matplotlib
+ta
