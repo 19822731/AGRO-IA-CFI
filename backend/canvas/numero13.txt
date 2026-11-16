@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard: Análisis del Mercado Regional de Azúcar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            overflow: hidden;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #111827;
+        }
+        .card-description {
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 sm:p-8">
+        <!-- Título Principal -->
+        <header class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Dashboard de Análisis de Mercado Regional</h1>
+            <p class="text-lg text-gray-600 mt-2">Visualización de los flujos de importación de azúcar en países clave.</p>
+        </header>
+
+        <!-- Grilla de Gráficos -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <!-- Gráfico 1: Importaciones de Uruguay -->
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="card-title mb-2">Análisis de Importaciones: Uruguay 🇺🇾</h2>
+                    <p class="card-description mb-4">El mercado uruguayo muestra una alta dependencia de sus socios del Mercosur. Brasil y Argentina dominan el suministro, representando en conjunto más del 97% del valor total importado.</p>
+                </div>
+                <div class="bg-gray-200 p-4">
+                    <!-- Espacio para la imagen de Uruguay -->
+                    <img src="http://googleusercontent.com/file_content/3" alt="Gráfico de importaciones de azúcar de Uruguay, mostrando a Brasil y Argentina como principales proveedores." class="w-full h-auto rounded-md shadow-md border">
+                </div>
+            </div>
+
+            <!-- Gráfico 2: Importaciones de Perú -->
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="card-title mb-2">Análisis de Importaciones: Perú 🇵🇪</h2>
+                    <p class="card-description mb-4">Perú presenta un mercado de origen más diversificado. Los países de Centroamérica como Guatemala y Nicaragua son los principales proveedores, seguidos por actores sudamericanos como Colombia y Brasil. Esto indica una mayor competencia y apertura.</p>
+                </div>
+                <div class="bg-gray-200 p-4">
+                    <!-- Espacio para la imagen de Perú -->
+                    <img src="http://googleusercontent.com/file_content/1" alt="Gráfico de importaciones de azúcar de Perú, con Guatemala y Nicaragua como principales orígenes." class="w-full h-auto rounded-md shadow-md border">
+                </div>
+            </div>
+
+            <!-- Gráfico 3: Importaciones de Chile -->
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="card-title mb-2">Análisis de Importaciones: Chile 🇨🇱</h2>
+                    <p class="card-description mb-4">Argentina se posiciona como el principal proveedor para el mercado chileno, con más del 36% de incidencia. Al igual que Perú, Chile muestra una diversificación con fuerte presencia de Guatemala y Colombia, configurando un mercado competitivo.</p>
+                </div>
+                <div class="bg-gray-200 p-4">
+                    <!-- Espacio para la imagen de Chile -->
+                    <img src="http://googleusercontent.com/file_content/2" alt="Gráfico de importaciones de azúcar de Chile, destacando a Argentina como el mayor proveedor." class="w-full h-auto rounded-md shadow-md border">
+                </div>
+            </div>
+
+            <!-- Gráfico 4: Importaciones de Paraguay -->
+            <div class="card">
+                <div class="p-6">
+                    <h2 class="card-title mb-2">Análisis de Importaciones: Paraguay 🇵🇾</h2>
+                    <p class="card-description mb-4">El mercado paraguayo exhibe una concentración extremadamente alta. Argentina domina de manera abrumadora como proveedor, con más del 78% de las importaciones, seguido a gran distancia por Francia, lo que sugiere una fuerte relación comercial bilateral.</p>
+                </div>
+                <div class="bg-gray-200 p-4">
+                    <!-- Espacio para la imagen de Paraguay -->
+                    <img src="http://googleusercontent.com/file_content/4" alt="Gráfico de importaciones de azúcar de Paraguay, con Argentina como proveedor dominante." class="w-full h-auto rounded-md shadow-md border">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Conclusión Estratégica -->
+        <div class="mt-12">
+            <div class="card p-6">
+                <h2 class="card-title mb-4 text-indigo-700">Conclusión Estratégica y Rol de Agro-IA</h2>
+                <p class="card-description mb-4">
+                    Este análisis de mercado no es solo una fotografía estática, sino el punto de partida para la estrategia proactiva de Agro-IA. El objetivo es utilizar esta inteligencia de mercado para aumentar la participación de los productores del ecosistema en estos mercados clave.
+                </p>
+                <div class="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-r-lg">
+                    <p class="font-semibold text-indigo-800">Optimización Dinámica de la Rentabilidad:</p>
+                    <p class="text-indigo-700 mt-2">
+                        La plataforma no solo conectará la oferta con la demanda. El motor de IA determinará continuamente la estrategia de venta más rentable. Si la IA detecta que el precio en el mercado interno es superior al de exportación, o si predice un futuro exceso de stock al final de la zafra, ajustará las comisiones de forma dinámica: las subirá para el mercado menos rentable y las bajará para el más atractivo. El objetivo final es siempre el mismo: <strong class="font-bold">lograr que la rentabilidad neta promedio de la zafra sea la mayor posible para el productor.</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center mt-12 text-gray-500 text-sm">
+            <p>Dashboard de Inteligencia de Mercado - Agro-IA</p>
+        </footer>
+    </div>
+
+</body>
+</html>

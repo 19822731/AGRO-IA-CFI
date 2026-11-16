@@ -81,3 +81,10 @@
   margin-bottom: 10px !important;
   margin-left: 10px !important;
 }
+
+/* Filtro para integrar las capas del INTA con transparencia */
+.inta-multiply-filter {
+  mix-blend-mode: multiply;
+  filter: contrast(120%) brightness(110%);
+  pointer-events: none; /* Permite interactuar con el mapa por debajo */
+}

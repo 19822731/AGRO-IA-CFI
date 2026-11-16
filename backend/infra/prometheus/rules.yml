@@ -1,0 +1,74 @@
+groups:
+- name: agroia-api
+  rules:
+  - alert: HighLatencyP95
+    expr: histogram_quantile(0.95, sum by (le, handler)(rate(http_request_duration_seconds_bucket[5m]))) > 0.5
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: "Latencia p95 alta (API)"
+      description: "El endpoint {{ $labels.handler }} tiene una latencia p95 superior a 500ms."
+
+  - alert: APIHigh5xxErrorRatio
+    expr: |
+      (
+        sum by (handler) (rate(http_requests_total{job="fastapi-app",status=~"5.."}[5m]))
+        /
+        sum by (handler) (rate(http_requests_total{job="fastapi-app"}[5m]))
+      ) > 0.10
+    for: 10m
+    labels: { severity: critical }
+    annotations:
+      summary: "Tasa de 5xx >10% en {{ $labels.handler }}"
+
+  - alert: APIHigh4xxErrorRatio
+    expr: |
+      (
+        sum by (handler) (rate(http_requests_total{job="fastapi-app",status=~"4.."}[5m]))
+        /
+        sum by (handler) (rate(http_requests_total{job="fastapi-app"}[5m]))
+      ) > 0.20
+    for: 15m
+    labels: { severity: warning }
+    annotations:
+      summary: "Tasa de 4xx >20% en {{ $labels.handler }}"
+
+# - name: celery
+#   rules:
+#   - alert: CeleryQueueBacklog
+#     # Esta métrica es un ejemplo y necesita ser expuesta por el worker de Celery.
+#     # Se puede implementar con un exportador personalizado o librerías como celery-exporter.
+#     expr: sum(celery_queue_length) > 100
+#     for: 10m
+#     labels:
+#       severity: warning
+#     annotations:
+#       summary: "Cola de Celery con alto backlog"
+#       description: "La cola {{ $labels.queue_name }} tiene más de 100 tareas pendientes."
+
+- name: prd
+  rules:
+  - alert: PRDStale
+    expr: (time() - prd_last_decision_ts) > 36*3600
+    for: 30m
+    labels: { severity: warning }
+    annotations:
+      summary: "PRD sin actualización"
+      description: "No hay decisión vigente en las últimas 36h."
+
+  - alert: PRDOptimizeFailures
+    expr: increase(prd_optimize_fail_total[30m]) > 0
+    for: 10m
+    labels: { severity: critical }
+    annotations:
+      summary: "Fallos al persistir decisiones PRD"
+      description: "Revisar logs con correlation_id."
+
+  - alert: MissingPolicy
+    expr: mcp_active_flag == 0
+    for: 10m
+    labels: { severity: warning }
+    annotations:
+      summary: "No hay política de comisiones activa"
+      description: "Definir/vigilar market_commission_policy vigente."

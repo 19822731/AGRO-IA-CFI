@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -11,7 +11,7 @@ import { ZoomIn, ZoomOut, RefreshCw } from "lucide-react"
 // Datos de ejemplo para el gráfico
 const generarDatosHistoricos = (dias = 30, volatilidad = 0.02) => {
   const datos = []
-  let precio = 19.75
+  let precio = 28000 // Base price adjusted to real market (~28k)
   let volumen = 1000
 
   const fechaFinal = new Date()
@@ -24,7 +24,7 @@ const generarDatosHistoricos = (dias = 30, volatilidad = 0.02) => {
 
     // Simular cambios de precio con algo de volatilidad
     const cambio = (Math.random() - 0.5) * volatilidad * precio
-    precio = Math.max(18.5, Math.min(21, precio + cambio))
+    precio = Math.max(26000, Math.min(30000, precio + cambio))
 
     // Simular cambios en el volumen
     volumen = Math.max(500, Math.min(2000, volumen + (Math.random() - 0.5) * 300))
@@ -41,34 +41,79 @@ const generarDatosHistoricos = (dias = 30, volatilidad = 0.02) => {
 
 export default function GraficoPrecios() {
   const [periodo, setPeriodo] = useState("30d")
-  const [datos, setDatos] = useState(generarDatosHistoricos(30))
+  const [datos, setDatos] = useState<any[]>([])
   const [zoom, setZoom] = useState(1)
   const [cargando, setCargando] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   // Referencia para el contenedor del gráfico
   const chartContainerRef = useRef<HTMLDivElement>(null)
 
-  // Función para cambiar el período
-  const cambiarPeriodo = (nuevoPeriodo: string) => {
-    setCargando(true)
+  // Función para obtener datos históricos de la API
+  const obtenerDatosHistoricos = async (dias = 30) => {
+    try {
+      const token = localStorage.getItem("auth_token")
+      const headers: HeadersInit = token ? { "Authorization": `Bearer ${token}` } : {}
 
-    // Mapear el período a días
-    const diasPorPeriodo: Record<string, number> = {
-      "7d": 7,
-      "30d": 30,
-      "90d": 90,
-      "180d": 180,
-      "1y": 365,
+      // Mapear periodo a limit (aprox)
+      let limit = 100
+      if (dias <= 7) limit = 50
+      else if (dias <= 30) limit = 100
+      else if (dias <= 90) limit = 300
+      else limit = 1000
+
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000'}/mercado/productos/2/historial?limit=${limit}`, {
+        headers
+      })
+
+      if (!response.ok) throw new Error("Error al obtener historial")
+
+      const data = await response.json()
+
+      // Transformar datos para el gráfico
+      return data.map((item: any) => ({
+        fecha: item.timestamp.split("T")[0],
+        precio: item.precio / 20, // Convertir TN a Bolsa
+        volumen: item.cantidad
+      }))
+
+    } catch (error) {
+      console.error("Error fetching history:", error)
+      return []
     }
+  }
 
+  // Cargar datos iniciales
+  useEffect(() => {
+    const cargarDatos = async () => {
+      setCargando(true)
+      const nuevosDatos = await obtenerDatosHistoricos(30)
+      if (nuevosDatos.length > 0) {
+        setDatos(nuevosDatos)
+      }
+      setCargando(false)
+    }
+    cargarDatos()
+  }, [])
+
+  // Función para cambiar el período
+  const cambiarPeriodo = async (nuevoPeriodo: string) => {
+    setCargando(true)
+    const diasPorPeriodo: Record<string, number> = {
+      "7d": 7, "30d": 30, "90d": 90, "180d": 180, "1y": 365,
+    }
     const dias = diasPorPeriodo[nuevoPeriodo] || 30
 
-    // Simular carga de datos
-    setTimeout(() => {
-      setDatos(generarDatosHistoricos(dias, dias > 90 ? 0.03 : 0.02))
-      setPeriodo(nuevoPeriodo)
-      setCargando(false)
-    }, 500)
+    const nuevosDatos = await obtenerDatosHistoricos(dias)
+    if (nuevosDatos.length > 0) {
+      setDatos(nuevosDatos)
+    }
+    setPeriodo(nuevoPeriodo)
+    setCargando(false)
   }
 
   // Función para formatear fechas en el eje X
@@ -91,12 +136,21 @@ export default function GraficoPrecios() {
   }
 
   // Función para refrescar los datos
-  const refrescarDatos = () => {
+  const refrescarDatos = async () => {
     setCargando(true)
-    setTimeout(() => {
-      setDatos(generarDatosHistoricos(datos.length - 1))
-      setCargando(false)
-    }, 500)
+    const diasPorPeriodo: Record<string, number> = {
+      "7d": 7, "30d": 30, "90d": 90, "180d": 180, "1y": 365,
+    }
+    const dias = diasPorPeriodo[periodo] || 30
+    const nuevosDatos = await obtenerDatosHistoricos(dias)
+    if (nuevosDatos.length > 0) {
+      setDatos(nuevosDatos)
+    }
+    setCargando(false)
+  }
+
+  if (!isMounted) {
+    return <div className="w-full h-[300px] bg-muted animate-pulse rounded-lg" />
   }
 
   return (
@@ -136,8 +190,8 @@ export default function GraficoPrecios() {
             <TabsTrigger value="volumen">Volumen</TabsTrigger>
           </TabsList>
           <TabsContent value="precio" className="h-[300px]">
-            <div ref={chartContainerRef} className="chart-container">
-              <ResponsiveContainer width="100%" height="100%">
+            <div ref={chartContainerRef} style={{ width: "100%", height: 300 }}>
+              <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
                 <LineChart data={datos} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
                   <XAxis
@@ -170,8 +224,8 @@ export default function GraficoPrecios() {
             </div>
           </TabsContent>
           <TabsContent value="volumen" className="h-[300px]">
-            <div className="chart-container">
-              <ResponsiveContainer width="100%" height="100%">
+            <div style={{ width: "100%", height: 300 }}>
+              <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
                 <LineChart data={datos} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
                   <XAxis

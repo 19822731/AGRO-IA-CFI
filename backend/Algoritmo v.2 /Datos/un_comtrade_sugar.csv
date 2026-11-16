@@ -1,0 +1,168 @@
+Periodo,Reporter_Code,Reporter_Pais,Partner_Code,Partner_Desc,HS_Code,Tipo_Azucar,Es_Total_Mundo,TN_Exportadas,FOB_USD,Precio_Medio_USD_TN
+2015,32,Argentina,0,Mundo (Total),170199,Blanco_Refinado_LDN5,True,99660.38,38261727.68,383.92
+2015,32,Argentina,56,Partner_56,170199,Blanco_Refinado_LDN5,False,1044.0,764160.4,731.95
+2015,32,Argentina,124,Partner_124,170199,Blanco_Refinado_LDN5,False,1220.0,801052.0,656.6
+2015,32,Argentina,144,Partner_144,170199,Blanco_Refinado_LDN5,False,20.0,13500.0,675.0
+2015,32,Argentina,152,Partner_152,170199,Blanco_Refinado_LDN5,False,69027.14,21955849.09,318.08
+2015,32,Argentina,214,Partner_214,170199,Blanco_Refinado_LDN5,False,75.0,58220.0,776.27
+2015,32,Argentina,251,Partner_251,170199,Blanco_Refinado_LDN5,False,120.0,90000.0,750.0
+2015,32,Argentina,276,Partner_276,170199,Blanco_Refinado_LDN5,False,3095.01,2217667.5,716.53
+2015,32,Argentina,380,Partner_380,170199,Blanco_Refinado_LDN5,False,367.0,276949.0,754.63
+2015,32,Argentina,392,Partner_392,170199,Blanco_Refinado_LDN5,False,100.0,76678.0,766.78
+2015,32,Argentina,410,Partner_410,170199,Blanco_Refinado_LDN5,False,96.0,75600.0,787.5
+2015,32,Argentina,528,Partner_528,170199,Blanco_Refinado_LDN5,False,615.0,465394.9,756.74
+2015,32,Argentina,554,Partner_554,170199,Blanco_Refinado_LDN5,False,75.0,60270.0,803.6
+2015,32,Argentina,600,Partner_600,170199,Blanco_Refinado_LDN5,False,256.0,201365.0,786.58
+2015,32,Argentina,604,Partner_604,170199,Blanco_Refinado_LDN5,False,125.0,27500.0,220.0
+2015,32,Argentina,724,Partner_724,170199,Blanco_Refinado_LDN5,False,81.0,62750.0,774.69
+2015,32,Argentina,757,Partner_757,170199,Blanco_Refinado_LDN5,False,1075.0,823481.94,766.03
+2015,32,Argentina,780,Partner_780,170199,Blanco_Refinado_LDN5,False,2255.0,746384.36,330.99
+2015,32,Argentina,826,Partner_826,170199,Blanco_Refinado_LDN5,False,800.0,528000.0,660.0
+2015,32,Argentina,838,Partner_838,170199,Blanco_Refinado_LDN5,False,299.45,231786.25,774.04
+2015,32,Argentina,842,Partner_842,170199,Blanco_Refinado_LDN5,False,7328.63,4185403.05,571.1
+2015,32,Argentina,858,Partner_858,170199,Blanco_Refinado_LDN5,False,11586.14,4599716.19,397.0
+2015,32,Argentina,0,Mundo (Total),170114,Crudo_VHP_NY11,True,82638.53,36366484.05,440.07
+2015,32,Argentina,124,Partner_124,170114,Crudo_VHP_NY11,False,176.0,149600.0,850.0
+2015,32,Argentina,152,Partner_152,170114,Crudo_VHP_NY11,False,315.5,124583.0,394.87
+2015,32,Argentina,156,Partner_156,170114,Crudo_VHP_NY11,False,46.0,37470.0,814.57
+2015,32,Argentina,251,Partner_251,170114,Crudo_VHP_NY11,False,20.0,14200.0,710.0
+2015,32,Argentina,410,Partner_410,170114,Crudo_VHP_NY11,False,283.0,221820.4,783.82
+2015,32,Argentina,554,Partner_554,170114,Crudo_VHP_NY11,False,9866.62,2881447.7,292.04
+2015,32,Argentina,842,Partner_842,170114,Crudo_VHP_NY11,False,71931.31,32937267.95,457.9
+2015,32,Argentina,858,Partner_858,170114,Crudo_VHP_NY11,False,0.1,95.0,950.0
+2016,32,Argentina,0,Mundo (Total),170199,Blanco_Refinado_LDN5,True,230741.44,100221625.18,434.35
+2016,32,Argentina,24,Partner_24,170199,Blanco_Refinado_LDN5,False,52.0,27040.0,520.0
+2016,32,Argentina,56,Partner_56,170199,Blanco_Refinado_LDN5,False,3303.0,2269711.4,687.17
+2016,32,Argentina,68,Partner_68,170199,Blanco_Refinado_LDN5,False,1.0,1073.0,1073.0
+2016,32,Argentina,124,Partner_124,170199,Blanco_Refinado_LDN5,False,6303.0,3448846.0,547.18
+2016,32,Argentina,144,Partner_144,170199,Blanco_Refinado_LDN5,False,80.0,53700.0,671.25
+2016,32,Argentina,152,Partner_152,170199,Blanco_Refinado_LDN5,False,153410.88,59997892.73,391.09
+2016,32,Argentina,170,Partner_170,170199,Blanco_Refinado_LDN5,False,8500.3,3385222.0,398.25
+2016,32,Argentina,218,Partner_218,170199,Blanco_Refinado_LDN5,False,2350.0,493500.0,210.0
+2016,32,Argentina,276,Partner_276,170199,Blanco_Refinado_LDN5,False,3256.03,2237146.3,687.08
+2016,32,Argentina,380,Partner_380,170199,Blanco_Refinado_LDN5,False,1314.6,887177.04,674.86
+2016,32,Argentina,392,Partner_392,170199,Blanco_Refinado_LDN5,False,220.0,150922.0,686.01
+2016,32,Argentina,528,Partner_528,170199,Blanco_Refinado_LDN5,False,700.0,485455.0,693.51
+2016,32,Argentina,600,Partner_600,170199,Blanco_Refinado_LDN5,False,183.02,145117.4,792.92
+2016,32,Argentina,604,Partner_604,170199,Blanco_Refinado_LDN5,False,84.0,28560.0,340.0
+2016,32,Argentina,608,Partner_608,170199,Blanco_Refinado_LDN5,False,24.0,16560.0,690.0
+2016,32,Argentina,702,Partner_702,170199,Blanco_Refinado_LDN5,False,25.0,17963.42,718.54
+2016,32,Argentina,710,Partner_710,170199,Blanco_Refinado_LDN5,False,20000.0,11249000.0,562.45
+2016,32,Argentina,724,Partner_724,170199,Blanco_Refinado_LDN5,False,103.5,76948.5,743.46
+2016,32,Argentina,757,Partner_757,170199,Blanco_Refinado_LDN5,False,1100.0,799180.0,726.53
+2016,32,Argentina,780,Partner_780,170199,Blanco_Refinado_LDN5,False,750.0,309750.0,413.0
+2016,32,Argentina,826,Partner_826,170199,Blanco_Refinado_LDN5,False,1390.0,915300.0,658.49
+2016,32,Argentina,838,Partner_838,170199,Blanco_Refinado_LDN5,False,271.45,221037.45,814.28
+2016,32,Argentina,842,Partner_842,170199,Blanco_Refinado_LDN5,False,8503.51,5776537.88,679.31
+2016,32,Argentina,858,Partner_858,170199,Blanco_Refinado_LDN5,False,18816.15,7227985.06,384.14
+2016,32,Argentina,0,Mundo (Total),170114,Crudo_VHP_NY11,True,337937.86,136259157.99,403.21
+2016,32,Argentina,124,Partner_124,170114,Crudo_VHP_NY11,False,439.9,307666.0,699.4
+2016,32,Argentina,144,Partner_144,170114,Crudo_VHP_NY11,False,20.0,13800.0,690.0
+2016,32,Argentina,152,Partner_152,170114,Crudo_VHP_NY11,False,1391.5,353230.0,253.85
+2016,32,Argentina,156,Partner_156,170114,Crudo_VHP_NY11,False,69.5,50906.7,732.47
+2016,32,Argentina,251,Partner_251,170114,Crudo_VHP_NY11,False,40.0,26000.0,650.0
+2016,32,Argentina,360,Partner_360,170114,Crudo_VHP_NY11,False,123620.0,41041049.23,331.99
+2016,32,Argentina,410,Partner_410,170114,Crudo_VHP_NY11,False,781.5,545130.0,697.54
+2016,32,Argentina,554,Partner_554,170114,Crudo_VHP_NY11,False,26150.0,7887874.27,301.64
+2016,32,Argentina,620,Partner_620,170114,Crudo_VHP_NY11,False,13783.4,4558016.01,330.69
+2016,32,Argentina,784,Partner_784,170114,Crudo_VHP_NY11,False,73443.8,32862403.48,447.45
+2016,32,Argentina,826,Partner_826,170114,Crudo_VHP_NY11,False,26016.6,10724019.07,412.2
+2016,32,Argentina,842,Partner_842,170114,Crudo_VHP_NY11,False,72181.66,37889063.23,524.91
+2017,32,Argentina,0,Mundo (Total),170199,Blanco_Refinado_LDN5,True,175781.31,88470041.56,503.3
+2017,32,Argentina,56,Partner_56,170199,Blanco_Refinado_LDN5,False,8013.0,5818544.5,726.14
+2017,32,Argentina,68,Partner_68,170199,Blanco_Refinado_LDN5,False,8019.4,3582313.2,446.71
+2017,32,Argentina,100,Partner_100,170199,Blanco_Refinado_LDN5,False,24.0,18000.0,750.0
+2017,32,Argentina,124,Partner_124,170199,Blanco_Refinado_LDN5,False,9190.25,5328397.9,579.79
+2017,32,Argentina,152,Partner_152,170199,Blanco_Refinado_LDN5,False,92928.87,40853914.1,439.63
+2017,32,Argentina,156,Partner_156,170199,Blanco_Refinado_LDN5,False,200.0,144305.0,721.52
+2017,32,Argentina,170,Partner_170,170199,Blanco_Refinado_LDN5,False,3000.0,1347600.0,449.2
+2017,32,Argentina,214,Partner_214,170199,Blanco_Refinado_LDN5,False,75.0,55492.5,739.9
+2017,32,Argentina,251,Partner_251,170199,Blanco_Refinado_LDN5,False,1272.0,910850.0,716.08
+2017,32,Argentina,276,Partner_276,170199,Blanco_Refinado_LDN5,False,3967.02,2720578.14,685.8
+2017,32,Argentina,300,Partner_300,170199,Blanco_Refinado_LDN5,False,25.0,18875.0,755.0
+2017,32,Argentina,380,Partner_380,170199,Blanco_Refinado_LDN5,False,1180.0,830096.0,703.47
+2017,32,Argentina,392,Partner_392,170199,Blanco_Refinado_LDN5,False,160.0,115796.0,723.73
+2017,32,Argentina,450,Partner_450,170199,Blanco_Refinado_LDN5,False,72.0,52560.0,730.0
+2017,32,Argentina,484,Partner_484,170199,Blanco_Refinado_LDN5,False,50.0,18000.0,360.0
+2017,32,Argentina,528,Partner_528,170199,Blanco_Refinado_LDN5,False,2695.0,1938897.5,719.44
+2017,32,Argentina,554,Partner_554,170199,Blanco_Refinado_LDN5,False,48.0,34560.0,720.0
+2017,32,Argentina,579,Partner_579,170199,Blanco_Refinado_LDN5,False,24.0,18000.0,750.0
+2017,32,Argentina,600,Partner_600,170199,Blanco_Refinado_LDN5,False,206.01,163078.89,791.62
+2017,32,Argentina,608,Partner_608,170199,Blanco_Refinado_LDN5,False,72.0,51120.0,710.0
+2017,32,Argentina,710,Partner_710,170199,Blanco_Refinado_LDN5,False,260.0,125736.0,483.6
+2017,32,Argentina,724,Partner_724,170199,Blanco_Refinado_LDN5,False,124.0,94760.0,764.19
+2017,32,Argentina,757,Partner_757,170199,Blanco_Refinado_LDN5,False,600.0,419690.0,699.48
+2017,32,Argentina,780,Partner_780,170199,Blanco_Refinado_LDN5,False,1050.0,292860.0,278.91
+2017,32,Argentina,826,Partner_826,170199,Blanco_Refinado_LDN5,False,300.0,212057.5,706.86
+2017,32,Argentina,838,Partner_838,170199,Blanco_Refinado_LDN5,False,641.2,533470.8,831.99
+2017,32,Argentina,842,Partner_842,170199,Blanco_Refinado_LDN5,False,21337.02,14589609.33,683.77
+2017,32,Argentina,858,Partner_858,170199,Blanco_Refinado_LDN5,False,20247.54,8180879.2,404.04
+2017,32,Argentina,0,Mundo (Total),170114,Crudo_VHP_NY11,True,114912.38,54850825.41,477.33
+2017,32,Argentina,56,Partner_56,170114,Crudo_VHP_NY11,False,2640.0,1821600.0,690.0
+2017,32,Argentina,152,Partner_152,170114,Crudo_VHP_NY11,False,25.0,32085.08,1283.4
+2017,32,Argentina,156,Partner_156,170114,Crudo_VHP_NY11,False,74.0,53280.0,720.0
+2017,32,Argentina,251,Partner_251,170114,Crudo_VHP_NY11,False,40.0,26000.0,650.0
+2017,32,Argentina,410,Partner_410,170114,Crudo_VHP_NY11,False,1103.2,777136.0,704.44
+2017,32,Argentina,458,Partner_458,170114,Crudo_VHP_NY11,False,50.0,37240.0,744.8
+2017,32,Argentina,554,Partner_554,170114,Crudo_VHP_NY11,False,28082.0,12819799.88,456.51
+2017,32,Argentina,752,Partner_752,170114,Crudo_VHP_NY11,False,500.0,380000.0,760.0
+2017,32,Argentina,826,Partner_826,170114,Crudo_VHP_NY11,False,34748.0,15847671.69,456.07
+2017,32,Argentina,842,Partner_842,170114,Crudo_VHP_NY11,False,47268.18,22939586.76,485.31
+2017,32,Argentina,858,Partner_858,170114,Crudo_VHP_NY11,False,382.0,116426.0,304.78
+2018,32,Argentina,0,Mundo (Total),170199,Blanco_Refinado_LDN5,True,66597.2,34834371.74,523.06
+2018,32,Argentina,124,Partner_124,170199,Blanco_Refinado_LDN5,False,562.4,340819.33,606.01
+2018,32,Argentina,152,Partner_152,170199,Blanco_Refinado_LDN5,False,32303.7,10477637.8,324.35
+2018,32,Argentina,276,Partner_276,170199,Blanco_Refinado_LDN5,False,4124.52,3041226.1,737.35
+2018,32,Argentina,600,Partner_600,170199,Blanco_Refinado_LDN5,False,221.01,173107.74,783.25
+2018,32,Argentina,842,Partner_842,170199,Blanco_Refinado_LDN5,False,24852.0,19046086.89,766.38
+2018,32,Argentina,858,Partner_858,170199,Blanco_Refinado_LDN5,False,4401.57,1643326.88,373.35
+2018,32,Argentina,899,Partner_899,170199,Blanco_Refinado_LDN5,False,132.0,112167.0,849.75
+2018,32,Argentina,0,Mundo (Total),170114,Crudo_VHP_NY11,True,36262.8,18087900.21,498.8
+2018,32,Argentina,842,Partner_842,170114,Crudo_VHP_NY11,False,36262.8,18087900.21,498.8
+2019,32,Argentina,0,Mundo (Total),170199,Blanco_Refinado_LDN5,True,100958.82,39026703.62,386.56
+2019,32,Argentina,152,Partner_152,170199,Blanco_Refinado_LDN5,False,79060.3,23986192.22,303.39
+2019,32,Argentina,251,Partner_251,170199,Blanco_Refinado_LDN5,False,2183.62,1565500.4,716.93
+2019,32,Argentina,276,Partner_276,170199,Blanco_Refinado_LDN5,False,5883.94,4462417.86,758.41
+2019,32,Argentina,842,Partner_842,170199,Blanco_Refinado_LDN5,False,12078.5,8455019.51,700.01
+2019,32,Argentina,858,Partner_858,170199,Blanco_Refinado_LDN5,False,1752.46,557573.63,318.17
+2019,32,Argentina,0,Mundo (Total),170114,Crudo_VHP_NY11,True,124238.0,48867713.72,393.34
+2019,32,Argentina,124,Partner_124,170114,Crudo_VHP_NY11,False,14600.0,7133071.8,488.57
+2019,32,Argentina,842,Partner_842,170114,Crudo_VHP_NY11,False,64138.2,29143739.64,454.39
+2019,32,Argentina,858,Partner_858,170114,Crudo_VHP_NY11,False,45499.8,12590902.28,276.72
+2020,32,Argentina,0,Mundo (Total),170199,Blanco_Refinado_LDN5,True,99504.17,37860797.53,380.49
+2020,32,Argentina,124,Partner_124,170199,Blanco_Refinado_LDN5,False,1075.55,634648.57,590.07
+2020,32,Argentina,152,Partner_152,170199,Blanco_Refinado_LDN5,False,68813.8,22265149.97,323.56
+2020,32,Argentina,251,Partner_251,170199,Blanco_Refinado_LDN5,False,948.0,553912.0,584.3
+2020,32,Argentina,528,Partner_528,170199,Blanco_Refinado_LDN5,False,1075.0,591275.0,550.02
+2020,32,Argentina,842,Partner_842,170199,Blanco_Refinado_LDN5,False,26778.0,13546750.18,505.89
+2020,32,Argentina,858,Partner_858,170199,Blanco_Refinado_LDN5,False,813.82,269061.81,330.62
+2020,32,Argentina,0,Mundo (Total),170114,Crudo_VHP_NY11,True,97394.8,43651833.74,448.19
+2020,32,Argentina,152,Partner_152,170114,Crudo_VHP_NY11,False,694.0,310700.0,447.69
+2020,32,Argentina,842,Partner_842,170114,Crudo_VHP_NY11,False,88232.7,41181431.61,466.74
+2020,32,Argentina,858,Partner_858,170114,Crudo_VHP_NY11,False,8468.1,2159702.13,255.04
+2021,32,Argentina,0,Mundo (Total),170199,Blanco_Refinado_LDN5,True,181078.74,71867870.25,396.89
+2021,32,Argentina,152,Partner_152,170199,Blanco_Refinado_LDN5,False,170493.81,66788746.44,391.74
+2021,32,Argentina,842,Partner_842,170199,Blanco_Refinado_LDN5,False,5544.25,3077868.97,555.15
+2021,32,Argentina,858,Partner_858,170199,Blanco_Refinado_LDN5,False,5040.68,2001254.84,397.02
+2021,32,Argentina,0,Mundo (Total),170114,Crudo_VHP_NY11,True,35773.2,22764050.72,636.34
+2021,32,Argentina,842,Partner_842,170114,Crudo_VHP_NY11,False,35773.2,22764050.72,636.34
+2022,32,Argentina,0,Mundo (Total),170199,Blanco_Refinado_LDN5,True,149522.98,70582544.8,472.05
+2022,32,Argentina,152,Partner_152,170199,Blanco_Refinado_LDN5,False,129364.0,59806684.61,462.31
+2022,32,Argentina,600,Partner_600,170199,Blanco_Refinado_LDN5,False,155.21,149348.61,962.25
+2022,32,Argentina,842,Partner_842,170199,Blanco_Refinado_LDN5,False,15412.1,8691364.95,563.93
+2022,32,Argentina,858,Partner_858,170199,Blanco_Refinado_LDN5,False,4591.67,1935146.63,421.45
+2022,32,Argentina,0,Mundo (Total),170114,Crudo_VHP_NY11,True,63619.5,32850767.85,516.36
+2022,32,Argentina,152,Partner_152,170114,Crudo_VHP_NY11,False,8764.0,3394470.0,387.32
+2022,32,Argentina,842,Partner_842,170114,Crudo_VHP_NY11,False,54855.5,29456297.85,536.98
+2023,32,Argentina,0,Mundo (Total),170199,Blanco_Refinado_LDN5,True,44548.0,23140190.87,519.44
+2023,32,Argentina,152,Partner_152,170199,Blanco_Refinado_LDN5,False,44548.0,23140190.87,519.44
+2023,32,Argentina,0,Mundo (Total),170114,Crudo_VHP_NY11,True,16675.9,11080465.9,664.46
+2023,32,Argentina,842,Partner_842,170114,Crudo_VHP_NY11,False,16675.9,11080465.9,664.46
+2024,32,Argentina,0,Mundo (Total),170199,Blanco_Refinado_LDN5,True,199545.59,110435787.22,553.44
+2024,32,Argentina,152,Partner_152,170199,Blanco_Refinado_LDN5,False,180083.37,98990092.52,549.69
+2024,32,Argentina,842,Partner_842,170199,Blanco_Refinado_LDN5,False,13272.6,8572956.0,645.91
+2024,32,Argentina,858,Partner_858,170199,Blanco_Refinado_LDN5,False,6189.62,2872738.7,464.12
+2024,32,Argentina,0,Mundo (Total),170114,Crudo_VHP_NY11,True,78411.5,49368348.71,629.61
+2024,32,Argentina,682,Partner_682,170114,Crudo_VHP_NY11,False,14986.0,6954082.04,464.04
+2024,32,Argentina,842,Partner_842,170114,Crudo_VHP_NY11,False,53389.0,38256912.41,716.57
+2024,32,Argentina,858,Partner_858,170114,Crudo_VHP_NY11,False,10036.5,4157354.26,414.22

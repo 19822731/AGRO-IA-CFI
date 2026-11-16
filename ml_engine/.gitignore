@@ -1,0 +1,14 @@
+venv/
+__pycache__/
+temp_diagnostics/
+*.log
+.DS_Store
+*.pth
+*.pt
+ultimate_dataset/
+roboflow_raw/
+BIBLIOTECA_TECNICA/
+forja_lora/
+*.out
+*.pid
+!dinov2_classifier_best.pth

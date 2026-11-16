@@ -1,0 +1,7 @@
+Estrategia,Enfoque,Hit_Rate_Global,Hit_Rate_Alta_Conviccion,R2_Precio,MAE_USD
+Campeón Histórico (LSTM),Deep Learning Secuencial Niveles,48.32%,N/A,-1.7236,144.71
+XGBoost Base Anterior,Gradient Boosting sin Alpha Completo,56.32%,N/A,0.9565,15.06
+XGBoost Regresor Reforzado,Alpha Features (MACD + Bollinger + Etanol),54.65%,N/A,0.9547,14.76
+XGBoost Two-Stage (Clasif + Reg),Especialización Direccional Pura,53.05%,N/A,0.9354,18.59
+XGBoost Two-Stage + Filtro Convicción (>54%),Operar Solo Señales Fuertes (Filtro de Ruido),53.05%,56.74% (68% de días),0.9354,18.59
+XGBoost Two-Stage + Filtro Alta Convicción (>56%),Operaciones Sniper de Alta Certeza,53.05%,60.45% (45% de días),0.9354,18.59

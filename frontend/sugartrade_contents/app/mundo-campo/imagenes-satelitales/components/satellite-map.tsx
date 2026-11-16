@@ -304,6 +304,12 @@ const SatelliteMap = forwardRef<SatelliteMapRef, SatelliteMapProps>(
           setCurrentOverlay(null)
         }
 
+        // Limpiar marcas de agua anteriores para evitar que se apilen
+        if (mapRef.current) {
+          const watermarks = document.querySelectorAll(".map-watermark")
+          watermarks.forEach((el) => el.parentElement?.remove())
+        }
+
         // Simular tiempo de carga (entre 0.5 y 1.5 segundos)
         const loadTime = Math.random() * 1000 + 500
         await new Promise((resolve) => setTimeout(resolve, loadTime))
@@ -714,117 +720,74 @@ const SatelliteMap = forwardRef<SatelliteMapRef, SatelliteMapProps>(
         }
 
         case "inta": {
-          // INTA (tonos más amarillentos)
-          if (layer === "cultivos") {
-            // Visualización de cultivos para INTA
-            const cultivosLayer = L.layerGroup()
-
-            // Añadir un rectángulo base
-            L.rectangle([bounds.getNorthEast(), bounds.getSouthWest()], {
-              color: "#cccc00",
-              weight: 1,
-              fillColor: "#ffffcc",
-              fillOpacity: 0.1 + dateVariation * 0.1,
-            }).addTo(cultivosLayer)
-
-            // Añadir patrones de cultivos
-            const positions = [
-              { lat: center.lat - 0.1, lng: center.lng - 0.2, type: "maiz" },
-              { lat: center.lat + 0.1, lng: center.lng + 0.2, type: "trigo" },
-              { lat: center.lat + 0.2, lng: center.lng - 0.1, type: "soja" },
-              { lat: center.lat - 0.2, lng: center.lng + 0.1, type: "caña" },
-            ]
-
-            positions.forEach((pos) => {
-              let color
-
-              switch (pos.type) {
-                case "maiz":
-                  color = "#ffcc00"
-                  break
-                case "trigo":
-                  color = "#cc9900"
-                  break
-                case "soja":
-                  color = "#99cc00"
-                  break
-                case "caña":
-                  color = "#66cc00"
-                  break
-                default:
-                  color = "#ffffff"
+          // Capas WMS reales integradas como tiles nativos del mapa
+          // Cada capa viene de un servidor que devuelve datos con fondo transparente
+          
+          if (layer === "ndvi_10d") {
+            // NASA GIBS - MODIS NDVI (datos reales cada 8 días, fondo transparente)
+            const wmsLayer = L.tileLayer.wms(
+              "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi",
+              {
+                layers: "MODIS_Terra_NDVI_8Day",
+                format: "image/png",
+                transparent: true,
+                opacity: 0.7,
+                crs: L.CRS.EPSG4326,
+                version: "1.1.1",
+                attribution: "NASA GIBS / MODIS Terra",
               }
-
-              L.circle([pos.lat, pos.lng], {
-                radius: 3500 + Math.random() * 2000,
-                color: color,
-                fillColor: color,
-                fillOpacity: 0.4 + dateVariation * 0.1,
-              }).addTo(cultivosLayer)
-            })
-
-            // Añadir texto de marca de agua
-            addWatermark("INTA Cultivos • " + date)
-
-            return cultivosLayer
-          } else {
-            // Mapa de suelos para INTA
-            const suelosLayer = L.layerGroup()
-
-            // Añadir un rectángulo base
-            L.rectangle([bounds.getNorthEast(), bounds.getSouthWest()], {
-              color: "#cccc00",
-              weight: 1,
-              fillColor: "#ffffcc",
-              fillOpacity: 0.1 + dateVariation * 0.05,
-            }).addTo(suelosLayer)
-
-            // Simular patrones de suelos
-            const features = [
-              { type: "arcilloso", lat: center.lat - 0.1, lng: center.lng - 0.2 },
-              { type: "arenoso", lat: center.lat + 0.1, lng: center.lng + 0.2 },
-              { type: "limoso", lat: center.lat + 0.2, lng: center.lng - 0.1 },
-              { type: "humifero", lat: center.lat - 0.2, lng: center.lng + 0.1 },
-            ]
-
-            features.forEach((feature) => {
-              let color, opacity
-
-              switch (feature.type) {
-                case "arcilloso":
-                  color = "#996633"
-                  opacity = 0.4 + dateVariation * 0.1
-                  break
-                case "arenoso":
-                  color = "#ffcc99"
-                  opacity = 0.3 + dateVariation * 0.1
-                  break
-                case "limoso":
-                  color = "#cc9966"
-                  opacity = 0.3 + dateVariation * 0.1
-                  break
-                case "humifero":
-                  color = "#663300"
-                  opacity = 0.3 + dateVariation * 0.1
-                  break
-                default:
-                  color = "#ffffff"
-                  opacity = 0.2
+            )
+            addWatermark("NDVI MODIS Terra (8 días) • NASA/INTA")
+            return wmsLayer
+          } else if (layer === "et_10d") {
+            // NASA GIBS - Evapotranspiración MODIS
+            const wmsLayer = L.tileLayer.wms(
+              "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi",
+              {
+                layers: "MODIS_Terra_EVI_8Day",
+                format: "image/png",
+                transparent: true,
+                opacity: 0.7,
+                crs: L.CRS.EPSG4326,
+                version: "1.1.1",
+                attribution: "NASA GIBS / MODIS Terra",
               }
-
-              L.circle([feature.lat, feature.lng], {
-                radius: 3000 + Math.random() * 2000,
-                color: color,
-                fillColor: color,
-                fillOpacity: opacity,
-              }).addTo(suelosLayer)
-            })
-
-            // Añadir texto de marca de agua
-            addWatermark("INTA Suelos • " + date)
-
-            return suelosLayer
+            )
+            addWatermark("EVI MODIS Terra (8 días) • NASA/INTA")
+            return wmsLayer
+          } else if (layer === "ch") {
+            // GeoINTA - Mapa Nacional de Cultivos (último verano disponible)
+            const wmsLayer = L.tileLayer.wms(
+              "https://geo-backend.inta.gob.ar/geoserver/wms",
+              {
+                layers: "geonode:MNC_verano_2023",
+                format: "image/png",
+                transparent: true,
+                opacity: 0.6,
+                version: "1.1.1",
+                attribution: "GeoINTA - Mapa Nacional de Cultivos",
+              }
+            )
+            addWatermark("Mapa Nacional de Cultivos • GeoINTA")
+            return wmsLayer
+          } else if (layer === "ad") {
+            // GeoINTA - Carbono orgánico del suelo
+            const wmsLayer = L.tileLayer.wms(
+              "https://geo-backend.inta.gob.ar/geoserver/wms",
+              {
+                layers: "geonode:Mapa_COS_Nacional",
+                format: "image/png",
+                transparent: true,
+                opacity: 0.6,
+                version: "1.1.1",
+                attribution: "GeoINTA - Stock de Carbono",
+              }
+            )
+            addWatermark("Stock de Carbono en Suelos • GeoINTA")
+            return wmsLayer
           }
+
+          return null
         }
 
         default:

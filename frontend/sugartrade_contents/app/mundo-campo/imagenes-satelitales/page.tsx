@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import {
+  Globe,
   Calendar,
   Info,
   Download,
@@ -25,9 +26,7 @@ import EnvironmentalConditions from "./components/environmental-conditions"
 import LandUseAnalysis from "./components/land-use-analysis"
 import RiskAssessment from "./components/risk-assessment"
 import SustainabilityAnalysis from "./components/sustainability-analysis"
-// Añadir la importación del nuevo componente
-// Eliminar esta línea:
-// import MarketAnalysis from "./components/market-analysis"
+import IntaSepaProducts from "./components/inta-sepa-products"
 
 // Añadir estas importaciones al inicio del archivo
 import LocationNotification from "@/components/location-notification"
@@ -180,8 +179,10 @@ export default function ImagenesSatelitales() {
       { id: "sacd", name: "SAC-D", description: "Datos de la misión Aquarius/SAC-D" },
     ],
     inta: [
-      { id: "cultivos", name: "Mapa de Cultivos", description: "Clasificación de cultivos en la región" },
-      { id: "suelos", name: "Mapa de Suelos", description: "Información edafológica" },
+      { id: "ndvi_10d", name: "NDVI - Vigor Vegetal", description: "Índice de vegetación MODIS (datos reales NASA)" },
+      { id: "et_10d", name: "EVI - Índice Mejorado", description: "Índice de vegetación mejorado MODIS (NASA)" },
+      { id: "ch", name: "Mapa de Cultivos", description: "Clasificación nacional de cultivos (GeoINTA)" },
+      { id: "ad", name: "Carbono en Suelos", description: "Stock de carbono orgánico del suelo (GeoINTA)" },
     ],
   }
 
@@ -296,7 +297,7 @@ export default function ImagenesSatelitales() {
         {/* Pestaña de Visualización */}
         <TabsContent value="visualizacion" className="space-y-6 mt-6">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-            <div className="lg:col-span-1 space-y-6">
+            <div className="lg:col-span-1 space-y-6 lg:max-h-[calc(100vh-200px)] lg:overflow-y-auto lg:sticky lg:top-4 pr-1">
               <Card className="bg-[#111936] border-[#1a2040]">
                 <CardHeader>
                   <CardTitle className="text-white flex items-center">
@@ -438,6 +439,154 @@ export default function ImagenesSatelitales() {
                   </CardContent>
                 </Card>
               )}
+
+              {selectedLayer === "ndvi_10d" && (
+                <Card className="bg-[#111936] border-[#1a2040]">
+                  <CardHeader>
+                    <CardTitle className="text-white text-sm">Leyenda NDVI</CardTitle>
+                    <CardDescription className="text-gray-400 text-xs">Índice de Vegetación (NASA MODIS)</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-1.5">
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#8B0000" }}></div>
+                        <span className="text-xs text-gray-300">{"< 0.1: Suelo desnudo / Agua"}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#CD853F" }}></div>
+                        <span className="text-xs text-gray-300">0.1 - 0.2: Vegetación muy escasa</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#F0E68C" }}></div>
+                        <span className="text-xs text-gray-300">0.2 - 0.4: Vegetación escasa</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#9ACD32" }}></div>
+                        <span className="text-xs text-gray-300">0.4 - 0.6: Vegetación moderada</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#228B22" }}></div>
+                        <span className="text-xs text-gray-300">0.6 - 0.8: Vegetación densa</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#006400" }}></div>
+                        <span className="text-xs text-gray-300">{"> 0.8: Vegetación muy densa"}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {selectedLayer === "et_10d" && (
+                <Card className="bg-[#111936] border-[#1a2040]">
+                  <CardHeader>
+                    <CardTitle className="text-white text-sm">Leyenda EVI</CardTitle>
+                    <CardDescription className="text-gray-400 text-xs">Índice de Vegetación Mejorado (NASA)</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-1.5">
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#A0522D" }}></div>
+                        <span className="text-xs text-gray-300">{"< 0.1: Sin cobertura vegetal"}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#DAA520" }}></div>
+                        <span className="text-xs text-gray-300">0.1 - 0.3: Bajo vigor</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#ADFF2F" }}></div>
+                        <span className="text-xs text-gray-300">0.3 - 0.5: Vigor moderado</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#32CD32" }}></div>
+                        <span className="text-xs text-gray-300">0.5 - 0.7: Buen vigor</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#006400" }}></div>
+                        <span className="text-xs text-gray-300">{"> 0.7: Excelente vigor"}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {selectedLayer === "ch" && (
+                <Card className="bg-[#111936] border-[#1a2040]">
+                  <CardHeader>
+                    <CardTitle className="text-white text-sm">Leyenda Cultivos</CardTitle>
+                    <CardDescription className="text-gray-400 text-xs">Mapa Nacional de Cultivos (GeoINTA)</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-1.5">
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#FFD700" }}></div>
+                        <span className="text-xs text-gray-300">Soja</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#FF8C00" }}></div>
+                        <span className="text-xs text-gray-300">Maíz</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#DAA520" }}></div>
+                        <span className="text-xs text-gray-300">Trigo</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#32CD32" }}></div>
+                        <span className="text-xs text-gray-300">Caña de azúcar</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#FF69B4" }}></div>
+                        <span className="text-xs text-gray-300">Algodón</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#228B22" }}></div>
+                        <span className="text-xs text-gray-300">Pasturas</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#006400" }}></div>
+                        <span className="text-xs text-gray-300">Monte / Bosque nativo</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#808080" }}></div>
+                        <span className="text-xs text-gray-300">Urbano / Sin datos</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {selectedLayer === "ad" && (
+                <Card className="bg-[#111936] border-[#1a2040]">
+                  <CardHeader>
+                    <CardTitle className="text-white text-sm">Leyenda Carbono</CardTitle>
+                    <CardDescription className="text-gray-400 text-xs">Stock de Carbono Orgánico (GeoINTA)</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-1.5">
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#FFFFCC" }}></div>
+                        <span className="text-xs text-gray-300">{"< 20 t/ha: Muy bajo"}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#C2E699" }}></div>
+                        <span className="text-xs text-gray-300">20 - 40 t/ha: Bajo</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#78C679" }}></div>
+                        <span className="text-xs text-gray-300">40 - 60 t/ha: Moderado</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#31A354" }}></div>
+                        <span className="text-xs text-gray-300">60 - 80 t/ha: Alto</span>
+                      </div>
+                      <div className="flex items-center">
+                        <div className="w-4 h-4 mr-2 rounded-sm" style={{ backgroundColor: "#006837" }}></div>
+                        <span className="text-xs text-gray-300">{"> 80 t/ha: Muy alto"}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
             </div>
 
             <div className="lg:col-span-3">
@@ -466,7 +615,7 @@ export default function ImagenesSatelitales() {
                     })}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="p-0 overflow-hidden rounded-lg relative">
                   <SatelliteMap
                     ref={mapRef}
                     source={selectedSource}
@@ -474,6 +623,60 @@ export default function ImagenesSatelitales() {
                     date={selectedDate}
                     onAreaSelected={handleAreaSelected}
                   />
+
+                  {/* Leyenda flotante sobre el mapa */}
+                  {selectedSource === "inta" && (
+                    <div className="absolute top-3 right-3 z-[1000] bg-[#111936]/90 backdrop-blur-sm border border-[#1a2040] rounded-lg p-3 max-w-[200px] shadow-lg">
+                      <p className="text-white text-xs font-bold mb-2 border-b border-[#1a2040] pb-1">
+                        {selectedLayer === "ndvi_10d" && "🟢 Leyenda NDVI"}
+                        {selectedLayer === "et_10d" && "🌿 Leyenda EVI"}
+                        {selectedLayer === "ch" && "🌾 Leyenda Cultivos"}
+                        {selectedLayer === "ad" && "🪨 Leyenda Carbono"}
+                      </p>
+                      <div className="space-y-1">
+                        {selectedLayer === "ndvi_10d" && (
+                          <>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#8B0000" }}></div><span className="text-[10px] text-gray-300">{"< 0.1 Suelo / Agua"}</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#CD853F" }}></div><span className="text-[10px] text-gray-300">0.1-0.2 Muy escasa</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#F0E68C" }}></div><span className="text-[10px] text-gray-300">0.2-0.4 Escasa</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#9ACD32" }}></div><span className="text-[10px] text-gray-300">0.4-0.6 Moderada</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#228B22" }}></div><span className="text-[10px] text-gray-300">0.6-0.8 Densa</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#006400" }}></div><span className="text-[10px] text-gray-300">{"> 0.8 Muy densa"}</span></div>
+                          </>
+                        )}
+                        {selectedLayer === "et_10d" && (
+                          <>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#A0522D" }}></div><span className="text-[10px] text-gray-300">{"< 0.1 Sin cobertura"}</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#DAA520" }}></div><span className="text-[10px] text-gray-300">0.1-0.3 Bajo vigor</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#ADFF2F" }}></div><span className="text-[10px] text-gray-300">0.3-0.5 Moderado</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#32CD32" }}></div><span className="text-[10px] text-gray-300">0.5-0.7 Bueno</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#006400" }}></div><span className="text-[10px] text-gray-300">{"> 0.7 Excelente"}</span></div>
+                          </>
+                        )}
+                        {selectedLayer === "ch" && (
+                          <>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#FFD700" }}></div><span className="text-[10px] text-gray-300">Soja</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#FF8C00" }}></div><span className="text-[10px] text-gray-300">Maíz</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#DAA520" }}></div><span className="text-[10px] text-gray-300">Trigo</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#32CD32" }}></div><span className="text-[10px] text-gray-300">Caña de azúcar</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#FF69B4" }}></div><span className="text-[10px] text-gray-300">Algodón</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#228B22" }}></div><span className="text-[10px] text-gray-300">Pasturas</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#006400" }}></div><span className="text-[10px] text-gray-300">Monte / Bosque</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#808080" }}></div><span className="text-[10px] text-gray-300">Urbano / Sin datos</span></div>
+                          </>
+                        )}
+                        {selectedLayer === "ad" && (
+                          <>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#FFFFCC" }}></div><span className="text-[10px] text-gray-300">{"< 20 t/ha Muy bajo"}</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#C2E699" }}></div><span className="text-[10px] text-gray-300">20-40 t/ha Bajo</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#78C679" }}></div><span className="text-[10px] text-gray-300">40-60 t/ha Moderado</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#31A354" }}></div><span className="text-[10px] text-gray-300">60-80 t/ha Alto</span></div>
+                            <div className="flex items-center"><div className="w-3 h-3 mr-2 rounded-sm" style={{ backgroundColor: "#006837" }}></div><span className="text-[10px] text-gray-300">{"> 80 t/ha Muy alto"}</span></div>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             </div>

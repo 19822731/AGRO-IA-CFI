@@ -42,6 +42,24 @@ export default function Navigation() {
         </li>
         <li>
           <Link
+            href="/utilidades/inteligencia-comercial"
+            className="flex items-center gap-3 text-lg hover:text-blue-400 transition-colors"
+          >
+            <LuBarChart3 className="text-xl" />
+            <span>Inteligencia Comercial IA</span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            href="/visor-cana"
+            className="flex items-center gap-3 text-lg hover:text-green-400 transition-colors"
+          >
+            <LuClipboardList className="text-xl" />
+            <span>( Visor-Caña )</span>
+          </Link>
+        </li>
+        <li>
+          <Link
             href="/utilidades/operaciones"
             className="flex items-center gap-3 text-lg hover:text-blue-400 transition-colors"
           >

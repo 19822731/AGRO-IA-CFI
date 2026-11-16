@@ -1,0 +1,8 @@
+Modelo,Tipo,R2,RMSE_USD,MAE_USD,Hit_Rate_%,Latencia_M4,Incertidumbre_Hedging
+Campeón Histórico (LSTM),Deep Learning Secuencial,-1.7236,151.67,144.71,48.32,45.0 ms,No disponible
+XGBoost Base,Gradient Boosting Tabular,0.9565,19.87,15.06,56.32,1.20 ms,Puntual
+XGBoost Optimizado (Tuned),XGBoost Regularizado L1/L2 + Ethanol Parity,0.9539,19.97,15.21,49.45,0.11 ms,Puntual
+Híbrido A (Multi-Task),Red Co-integrada M4,0.9268,25.17,19.49,48.36,0.80 ms,Puntual
+Arquitectura C (Transformer),Wavelet Multi-Head Attention,0.9548,19.78,15.04,54.07,0.12 ms,Puntual
+Opción D: MoE Adaptativo,Mixture of Experts Router,0.9532,20.12,15.25,53.23,0.48 ms,Bandas ±$31.53
+Super-Híbrido 90/10 (Propuesto),90% XGBoost Tuned + 10% MoE + Conformal,0.954,19.94,15.2,49.26,0.55 ms (ANE),Bandas 90% (±$28.81)

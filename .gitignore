@@ -2,10 +2,20 @@
 .env.local
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.pytest_cache/
 node_modules/
 .next/
 venv/
+.venv/
 env/
 *.pt
 *.safetensors
+*.zip
+*.sqlite
+*.sqlite3
 .DS_Store
+
+# Preservar pesos oficiales del clasificador Visor Caña Pro (34 KB)
+!dinov2_classifier_best.pth

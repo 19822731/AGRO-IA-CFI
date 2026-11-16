@@ -16,11 +16,13 @@ import {
   AlertTriangle,
   Sparkles,
   ArrowLeft,
+  Scale,
 } from "lucide-react"
 import { useRouter } from "next/navigation"
 import MarketAnalysis from "./components/market-analysis"
-import { PatronesClimaticos, PatronesMercado, VisualizacionMercado } from "./components/modelos-patrones"
-import PreciosTendenciasDashboard from "./components/precios-tendencias"
+import { PatronesClimaticos, VisualizacionMercado } from "./components/modelos-patrones"
+import EstacionalidadMercado from "./components/estacionalidad-mercado"
+import MarketCharts from "./components/market-charts"
 import { ErrorDisplay } from "@/components/error-display"
 
 // Componente de botón de función con icono
@@ -60,21 +62,19 @@ const FunctionButton = ({
 
   return (
     <Card
-      className={`cursor-pointer transition-all hover:shadow-md ${
-        isHighlighted
+      className={`cursor-pointer transition-all hover:shadow-md ${isHighlighted
           ? "bg-gradient-to-br from-[#0a0f29] to-[#1a2040] border-[#00a8ff] shadow-lg hover:shadow-xl"
           : isActive
             ? "bg-[#1a2040] border-[#00a8ff]"
             : "bg-[#111936] border-[#1a2040] hover:bg-[#162040]"
-      } ${isHighlighted ? "transform hover:-translate-y-1" : ""}`}
+        } ${isHighlighted ? "transform hover:-translate-y-1" : ""}`}
       onClick={handleClick}
     >
       <CardContent className={`p-4 ${isHighlighted ? "p-5" : ""}`}>
         <div className="flex items-start space-x-4">
           <div
-            className={`p-3 rounded-full ${
-              isHighlighted ? "bg-[#00a8ff]/30 text-white" : isActive ? "bg-[#00a8ff]/20" : "bg-[#0a0f29]"
-            }`}
+            className={`p-3 rounded-full ${isHighlighted ? "bg-[#00a8ff]/30 text-white" : isActive ? "bg-[#00a8ff]/20" : "bg-[#0a0f29]"
+              }`}
           >
             {icon}
           </div>
@@ -88,9 +88,8 @@ const FunctionButton = ({
                 {" "}
                 {/* Añadido flex-wrap y gap-1 */}
                 <h3
-                  className={`font-medium ${
-                    isHighlighted ? "text-[#00a8ff] text-lg" : isActive ? "text-[#00a8ff]" : "text-white"
-                  }`}
+                  className={`font-medium ${isHighlighted ? "text-[#00a8ff] text-lg" : isActive ? "text-[#00a8ff]" : "text-white"
+                    }`}
                 >
                   {title}
                 </h3>
@@ -228,11 +227,12 @@ const functionButtons = [
   },
   {
     id: "patrones-mercado",
-    title: "Patrones de Mercado",
-    description: "Identificación de tendencias y ciclos",
-    icon: <TrendingUp className="h-6 w-6 text-[#00a8ff]" />,
+    title: "Estacionalidad y Ritmo Zafra",
+    description: "Curvas de molienda, ritmo de embarque Comex Stat, paridad FAS y comisiones",
+    icon: <Scale className="h-6 w-6 text-[#00a8ff]" />,
     isImplemented: true,
     isAIPowered: true,
+    isHighlighted: true,
   },
   {
     id: "patrones-climaticos",
@@ -247,7 +247,7 @@ const functionButtons = [
 // Modificar la estructura del grid y la disposición de los botones
 export default function InteligenciaComercialPage() {
   const router = useRouter()
-  const [activeFunction, setActiveFunction] = useState("mercado-global")
+  const [activeFunction, setActiveFunction] = useState("patrones-mercado")
 
   return (
     <div className="space-y-6 p-6">
@@ -312,8 +312,8 @@ export default function InteligenciaComercialPage() {
         )}
 
         {activeFunction === "patrones-mercado" && (
-          <TabErrorBoundary tabName="Patrones de Mercado">
-            <PatronesMercado />
+          <TabErrorBoundary tabName="Estacionalidad y Ritmo Zafra">
+            <EstacionalidadMercado />
           </TabErrorBoundary>
         )}
 
@@ -329,14 +329,12 @@ export default function InteligenciaComercialPage() {
           </TabErrorBoundary>
         )}
 
-        {/* Funcionalidad Precios y Tendencias */}
+        {/* Funcionalidades en desarrollo */}
         {activeFunction === "precios" && (
           <TabErrorBoundary tabName="Precios y Tendencias">
-            <PreciosTendenciasDashboard />
+            <MarketCharts />
           </TabErrorBoundary>
         )}
-
-        {/* Funcionalidades en desarrollo */}
 
         {activeFunction === "analisis-competitivo" && <UnderDevelopmentContent title="Análisis Competitivo" />}
 

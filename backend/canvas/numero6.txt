@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Proyecto: Predicción de Precios del Azúcar</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter for a clean, modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles to enhance the visual appeal */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* Soft shadow */
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            overflow: hidden; /* Ensures content respects the border radius */
+        }
+        .card:hover {
+            transform: translateY(-5px); /* Subtle lift effect on hover */
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .card-title {
+            font-size: 1.125rem; /* 18px */
+            font-weight: 600;
+            color: #111827; /* Dark gray text */
+        }
+        .card-description {
+            color: #4b5563; /* Medium gray text */
+        }
+        .main-title {
+            color: #1e3a8a; /* Deep blue for the main title */
+        }
+        .header-bg {
+            background: linear-gradient(90deg, rgba(30,58,138,1) 0%, rgba(59,130,246,1) 100%);
+        }
+        .kpi {
+            background-color: #e0e7ff;
+            border-left: 4px solid #4f46e5;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="header-bg p-6 sm:p-8 shadow-lg">
+        <div class="max-w-7xl mx-auto text-white">
+            <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">Dashboard de Proyecto: Predicción de Precios del Azúcar</h1>
+            <p class="mt-2 text-lg sm:text-xl opacity-90">Análisis y desarrollo de un modelo de ensamble ponderado para el Contrato #11.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="p-4 sm:p-8">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Section 1: The Final Result - The Ensemble Model -->
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Resultado Final: El Modelo de Ensamble en Acción</h2>
+                <div class="card p-4 sm:p-6">
+                    <h3 class="card-title mb-2">Predicción del Ensamble Ponderado vs. Precio Real</h3>
+                    <p class="card-description mb-4">
+                        Esta gráfica es la prueba principal del éxito del proyecto. Muestra el ajuste casi perfecto del modelo de ensamble final (rojo) contra los precios reales (azul), validando su alta precisión y fiabilidad para el uso práctico en la toma de decisiones.
+                    </p>
+                    <!-- ================================================================================================= -->
+                    <!-- === REEMPLAZA LA SIGUIENTE LÍNEA CON LA URL DE TU GRÁFICO "comparativa_ensamble_vs_real.png" === -->
+                    <!-- ================================================================================================= -->
+                    <img src="URL_DE_TU_GRAFICO_PRINCIPAL_AQUI.png" alt="Gráfico de la predicción del ensamble ponderado vs. el precio real" class="w-full h-auto rounded-md border border-gray-200">
+                </div>
+            </div>
+
+            <!-- Section 2: The Journey - Model Evolution -->
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">La Evolución del Modelo: Un Enfoque Iterativo</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Card 1: Initial Comparison -->
+                <div class="card">
+                    <!-- ================================================================================================= -->
+                    <!-- === REEMPLAZA LA SIGUIENTE LÍNEA CON LA URL DE TU GRÁFICO "comparativa_campeones_contrato_11.png" === -->
+                    <!-- ================================================================================================= -->
+                    <img src="URL_GRAFICO_COMPARATIVA_CAMPEONES.png" alt="Gráfico de la comparativa de modelos campeones" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="card-title">Fase 1: Comparativa Inicial</h3>
+                        <p class="card-description mt-2">
+                            El análisis comenzó evaluando varios algoritmos "campeones". Esta fase fue crucial para identificar a los candidatos más fuertes, como la Regresión Lineal (R2: 0.9695), y establecer una línea base de rendimiento.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2: LSTM Model -->
+                <div class="card">
+                     <!-- ================================================================================================= -->
+                    <!-- === REEMPLAZA LA SIGUIENTE LÍNEA CON LA URL DE TU GRÁFICO "predicciones_lstm_multivariado.png" === -->
+                    <!-- ================================================================================================= -->
+                    <img src="URL_GRAFICO_PREDICCIONES_LSTM.png" alt="Gráfico de las predicciones del modelo LSTM" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="card-title">Fase 2: Modelando Tendencias con LSTM</h3>
+                        <p class="card-description mt-2">
+                            Se exploró un modelo LSTM Multivariado para capturar las complejas dependencias temporales. Demostró una gran capacidad para seguir la tendencia general del precio, aunque con un ligero desfase.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3: Random Forest Optimization -->
+                <div class="card">
+                     <!-- ================================================================================================= -->
+                    <!-- === REEMPLAZA LA SIGUIENTE LÍNEA CON LA URL DE TU GRÁFICO "predicciones_vs_reales_optimizado.png" === -->
+                    <!-- ================================================================================================= -->
+                    <img src="URL_GRAFICO_RANDOM_FOREST.png" alt="Gráfico de dispersión del Random Forest Optimizado" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="card-title">Fase 2: Precisión con Random Forest</h3>
+                        <p class="card-description mt-2">
+                           La optimización de un modelo Random Forest resultó en una correlación casi perfecta entre predicciones y valores reales, como muestra el gráfico de dispersión, validando su alta precisión.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Conclusions -->
+            <div class="mt-12">
+                 <h2 class="text-2xl font-bold text-gray-800 mb-4">Conclusiones y Próximos Pasos</h2>
+                 <div class="card p-6">
+                     <p class="card-description text-base">
+                        Se ha desarrollado y validado con éxito un **modelo de ensamble ponderado** que predice el precio del Contrato de Azúcar #11 con un grado de precisión extremadamente alto. Los gráficos presentados muestran los resultados de algunos de los modelos que están en constante evolución, mejorando su precisión continuamente. Por ejemplo, en el **modelo de tendencia multivariado (LSTM)**, se analizan de forma conjunta los contratos #5 y #11 junto a otras variables exógenas que permiten mejorar sus predicciones. Esta herramienta no solo valida la hipótesis del proyecto, sino que representa un activo estratégico significativo con potencial para generar un impacto de negocio medible. <span class="font-semibold text-gray-700">Con el tiempo y la incorporación de más datos, los modelos serán aún más precisos.</span>
+                     </p>
+                     <ul class="list-disc list-inside mt-4 space-y-2 text-gray-600">
+                        <li><span class="font-semibold text-indigo-600">Próximo Paso 1:</span> Implementar el modelo en un dashboard de monitoreo en tiempo real para la toma de decisiones diaria.</li>
+                        <li><span class="font-semibold text-indigo-600">Próximo Paso 2:</span> Adaptar la metodología para predecir los precios de otros contratos o materias primas relacionadas.</li>
+                        <li><span class="font-semibold text-indigo-600">Próximo Paso 3:</span> Establecer un ciclo de re-entrenamiento automático para asegurar que el modelo se mantenga preciso frente a nuevas condiciones de mercado.</li>
+                     </ul>
+                 </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-12 py-6 bg-gray-800 text-white text-center">
+        <p>&copy; 2025 - Reporte de Modelo Predictivo. Desarrollado con análisis de datos avanzado.</p>
+    </footer>
+
+</body>
+</html>

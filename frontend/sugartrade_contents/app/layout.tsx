@@ -4,6 +4,8 @@ import { Inter } from "next/font/google"
 import Sidebar from "@/components/sidebar"
 import "./globals.css"
 
+import { Toaster } from "@/components/ui/sonner"
+
 const inter = Inter({ subsets: ["latin"] })
 
 // Modificar el título en el objeto metadata
@@ -21,10 +23,11 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${inter.className} dark`}>
-        <div className="flex h-screen bg-[#0a0f29] text-white">
+        <div className="flex h-screen text-white">
           <Sidebar />
           <main className="flex-1 overflow-auto p-6">{children}</main>
         </div>
+        <Toaster />
       </body>
     </html>
   )

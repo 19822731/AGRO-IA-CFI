@@ -29,22 +29,22 @@ export async function middleware(req: NextRequest) {
 
   const token = req.cookies.get(COOKIE_NAME)?.value
 
-  // if (!token) {
-  //   console.log("[v0] No token found, redirecting to login")
-  //   const url = new URL("/login", req.url)
-  //   url.searchParams.set("next", pathname)
-  //   return NextResponse.redirect(url)
-  // }
+  if (!token) {
+    console.log("[v0] No token found, redirecting to login")
+    const url = new URL("/login", req.url)
+    url.searchParams.set("next", pathname)
+    return NextResponse.redirect(url)
+  }
 
-  console.log("[v0] Token found:", token ? token.substring(0, 20) + "..." : "No token")
+  console.log("[v0] Token found:", token.substring(0, 20) + "...")
 
   // El backend ya validó las credenciales cuando emitió el token
-  // if (token && token.length < 10) {
-  //   console.log("[v0] Token too short, redirecting to login")
-  //   const url = new URL("/login", req.url)
-  //   url.searchParams.set("next", pathname)
-  //   return NextResponse.redirect(url)
-  // }
+  if (token.length < 10) {
+    console.log("[v0] Token too short, redirecting to login")
+    const url = new URL("/login", req.url)
+    url.searchParams.set("next", pathname)
+    return NextResponse.redirect(url)
+  }
 
   console.log("[v0] Token valid, allowing access to:", pathname)
   return NextResponse.next()

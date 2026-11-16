@@ -10,11 +10,12 @@ import {
   Title,
   Tooltip,
   Legend,
-  type ChartOptions,
+  ChartOptions,
+  Filler,
 } from "chart.js"
 import { Line } from "react-chartjs-2"
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend)
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler)
 
 interface PriceEvolutionChartProps {
   data: {
@@ -39,8 +40,21 @@ export default function PriceEvolutionChart({ data, yAxisLabel = "centavos/libra
       {
         label: "Precio",
         data: data.map((item) => item.precio),
-        borderColor: "#00a8ff",
-        backgroundColor: "#00a8ff",
+        borderColor: "#4285F4",
+        backgroundColor: (context: any) => {
+          const ctx = context.chart.ctx
+          const gradient = ctx.createLinearGradient(0, 0, 0, 300)
+          gradient.addColorStop(0, "rgba(66, 133, 244, 0.5)")
+          gradient.addColorStop(1, "rgba(66, 133, 244, 0)")
+          return gradient
+        },
+        fill: true,
+        tension: 0.4,
+        pointBackgroundColor: "#050505",
+        pointBorderColor: "#4285F4",
+        pointBorderWidth: 2,
+        pointRadius: 4,
+        pointHoverRadius: 6,
       },
     ],
   }
@@ -55,23 +69,23 @@ export default function PriceEvolutionChart({ data, yAxisLabel = "centavos/libra
           drawBorder: false,
         },
         ticks: {
-          color: "rgba(255, 255, 255, 0.7)",
+          color: "rgba(255, 255, 255, 0.5)",
           font: {
-            size: 10,
+            family: "'Outfit', sans-serif",
+            size: 11,
           },
-          maxRotation: 45,
-          minRotation: 45,
         },
       },
       y: {
         grid: {
-          color: "rgba(255, 255, 255, 0.1)",
+          color: "rgba(255, 255, 255, 0.05)",
           drawBorder: false,
         },
         ticks: {
-          color: "rgba(255, 255, 255, 0.7)",
+          color: "rgba(255, 255, 255, 0.5)",
           font: {
-            size: 10,
+            family: "'Outfit', sans-serif",
+            size: 11,
           },
         },
       },
@@ -81,13 +95,22 @@ export default function PriceEvolutionChart({ data, yAxisLabel = "centavos/libra
         display: false,
       },
       tooltip: {
-        backgroundColor: "rgba(10, 15, 41, 0.9)",
-        titleColor: "#00a8ff",
+        backgroundColor: "rgba(10, 15, 41, 0.8)",
+        titleColor: "#4285F4",
         bodyColor: "white",
-        borderColor: "rgba(255, 255, 255, 0.2)",
+        borderColor: "rgba(255, 255, 255, 0.1)",
         borderWidth: 1,
-        padding: 10,
+        padding: 12,
         displayColors: false,
+        titleFont: {
+          family: "'Outfit', sans-serif",
+          size: 13,
+          weight: "bold",
+        },
+        bodyFont: {
+          family: "'Outfit', sans-serif",
+          size: 12,
+        },
         callbacks: {
           title: (tooltipItems) => tooltipItems[0].label,
           label: (context) => `${context.parsed.y.toLocaleString("es-AR")} ${yAxisLabel}`,
@@ -96,18 +119,7 @@ export default function PriceEvolutionChart({ data, yAxisLabel = "centavos/libra
     },
     elements: {
       line: {
-        tension: 0.4,
-        borderWidth: 2,
-        borderColor: "#00a8ff",
-        fill: false,
-        backgroundColor: "#00a8ff",
-      },
-      point: {
-        radius: 3,
-        hitRadius: 10,
-        hoverRadius: 5,
-        backgroundColor: "#00a8ff",
-        borderColor: "#0a0f29",
+        borderWidth: 3,
       },
     },
     interaction: {

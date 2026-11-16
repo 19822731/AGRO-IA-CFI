@@ -1,0 +1,6 @@
+Arquitectura,Tipo,R2_Precio,RMSE_USD,MAE_USD,Acierto_Direccional,Latencia_M4
+Campeón Histórico (LSTM en Precios Nominales),Deep Learning Clásico (Secuencial),-1.7236,151.67,144.71,48.32,45.0 ms
+Contendiente XGBoost (Retornos Log),Gradient Boosting Tabular,0.9565,19.87,15.06,56.32,1.2 ms
+Híbrido A: Multi-Task Dual (Cto5 + Cto11 + WSP),Deep Learning Co-integrado M4,0.9268,25.17,19.49,48.36,0.80 ms (ANE)
+Híbrido B: Stacking Ensemble,Ensemble Neuronal-Tabular,0.9225,25.9,20.44,47.57,2.1 ms
+Arquitectura C: Wavelet + Temporal Transformer,Atención Multiescala Auto-Regresiva,0.9548,19.78,15.04,54.07,0.12 ms (ANE)

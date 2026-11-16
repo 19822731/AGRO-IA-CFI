@@ -1,0 +1,129 @@
+{
+  "metadata": {
+    "timestamp_ejecucion": "2026-11-09T19:51:35.953644",
+    "fecha_analisis": "2025-01-15",
+    "version_motor": "AgroIA-PRD-v2.7-M4-Comex",
+    "chip_hardware": "Apple Silicon M4 Neural Engine"
+  },
+  "mercado_internacional": {
+    "fecha_mercado": "2026-11-09",
+    "cto5_actual_usd": 509.6,
+    "cto11_actual_clb": 18.209999084472656,
+    "wsp_actual_usd": 108.13871818389896,
+    "tc_oficial_ars": 1545.25,
+    "petroleo_wti_usd": 86.68000030517578,
+    "tactico_7d": {
+      "cto5_pred_usd": 526.07,
+      "cto11_pred_clb": 18.35,
+      "var_cto5_pct": "+3.23%",
+      "conformal_p10_usd": 497.26,
+      "conformal_p90_usd": 554.88,
+      "margen_error_usd": 28.81,
+      "hit_rate_confianza": "57.7% - 60.5%"
+    },
+    "paridad_exportacion": {
+      "gastos_puerto_usd_tn": 45.0,
+      "fas_usd_tn": 464.6,
+      "fas_ars_tn": 717923.15,
+      "fas_ars_bolsa": 35896.16
+    },
+    "expectativas_estrategicas": {
+      "3_meses": {
+        "dias": 65,
+        "periodo": "Feb-2027",
+        "cto5_usd": 526.06,
+        "cto11_clb": 18.35,
+        "var_pct": "+3.23%",
+        "semaforo": "VENTA_CONTROLADA",
+        "accion": "El mercado se mantiene firme. Dosificar ventas internas y no convalidar descuentos."
+      },
+      "4_meses": {
+        "dias": 85,
+        "periodo": "Mar-2027",
+        "cto5_usd": 513.73,
+        "cto11_clb": 19.26,
+        "var_pct": "+0.81%",
+        "semaforo": "MANTENER_STOCK",
+        "accion": "Transición de entresafra. Mantener inventario estratégico para abastecer consumo interno."
+      },
+      "6_meses": {
+        "dias": 130,
+        "periodo": "May-2027",
+        "cto5_usd": 555.51,
+        "cto11_clb": 19.66,
+        "var_pct": "+9.01%",
+        "semaforo": "CAPTURA_DE_PICO",
+        "accion": "Pico de cotización proyectado ($555 USD/t). Oportunidad óptima para fijar contratos de exportación."
+      },
+      "1_año": {
+        "dias": 260,
+        "periodo": "Nov-2027",
+        "cto5_usd": 511.59,
+        "cto11_clb": 18.49,
+        "var_pct": "+0.39%",
+        "semaforo": "HEDGING_COBERTURA",
+        "accion": "Reversión esperada hacia costos medios ($511 USD/t). Fijar futuros defensivos de cosecha 2027."
+      }
+    }
+  },
+  "mercado_brasil_comexstat": {
+    "ultimo_periodo_reportado": "2026-10",
+    "brasil_exportacion_mes_tn": 3243607.5,
+    "promedio_historico_mes_tn": 2902282.5,
+    "desvio_volumen_pct": 11.76,
+    "precio_medio_fob_usd_tn": 365.47,
+    "senal_macro_brasil": "OFERTA_BRASIL_NORMAL",
+    "impacto_precio_global": "NEUTRAL",
+    "interpretacion": "Brasil exportó 3.24M TN en el mes (+11.8% vs promedio histórico), alineado con su estacionalidad típica."
+  },
+  "monitoreo_exportaciones_aduanas": {
+    "fecha": "2025-01-15",
+    "cupo_anual_exportacion_tn": 900750.0,
+    "pct_estacional_esperado": 0.0,
+    "exportacion_teorica_acumulada_tn": 0.0,
+    "exportacion_real_acumulada_tn": 0.0,
+    "delta_exportacion_tn": 0.0,
+    "pacing_ratio_pct": 100.0,
+    "presion_sobrestock_latente": 0.0,
+    "ajuste_prd_sugerido_pct": 0.0,
+    "semaforo_exportador": "ENTRESAFRA_NEUTRAL",
+    "diagnostico_estrategico": "Período de entresafra. El mercado interno consume inventario de zafra anterior."
+  },
+  "balance_interno": {
+    "precio_base_historico_bolsa": 23306.0,
+    "precio_base_historico_tn": 466120.0,
+    "stock_real_hoy_tn": 212060.8,
+    "stock_esperado_hoy_tn": 211371.0,
+    "desviacion_stock_pct": 0.17,
+    "factor_k_dinamico": 0.35,
+    "cupo_anual_exportacion_tn": 900750.0
+  },
+  "prd_resultado": {
+    "prd_sugerido_ars_bolsa": 35896.16,
+    "prd_sugerido_ars_tn": 717923.2,
+    "piso_paridad_exportacion_bolsa": 35896.16,
+    "arbitraje_exportacion_activo": true,
+    "diagnostico_comercial": "PISO DE PARIDAD ACTIVO [ENTRESAFRA_NEUTRAL]: Conviene exportar excedentes al exterior antes de convalidar bajas internas."
+  },
+  "politica_comisiones_dinamicas": {
+    "modelo_integrado": "marketplace_service.py",
+    "prd_ancla_ars_bolsa": 35896.16,
+    "comision_base_vendedor_pct": 2.0,
+    "comision_base_comprador_pct": 2.0,
+    "rango_comision_pct": "2.0% a 6.0%",
+    "comision_operando_a_prd": {
+      "desviacion_respecto_prd_pct": 0.0,
+      "tasa_vendedor_pct": 2.0,
+      "tasa_comprador_pct": 2.0,
+      "tasa_plataforma_total_pct": 4.0,
+      "comision_vendedor_bolsa_ars": 717.92,
+      "comision_comprador_bolsa_ars": 717.92,
+      "comision_plataforma_total_bolsa_ars": 1435.85
+    }
+  },
+  "prd": 35896.16,
+  "prd_bolsa": 35896.16,
+  "prd_tn": 717923.2,
+  "desviacion_stock_pct": 0.17,
+  "k_dinamico": 0.35
+}

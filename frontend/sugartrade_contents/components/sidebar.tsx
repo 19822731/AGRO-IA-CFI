@@ -21,11 +21,24 @@ import {
   Globe,
   Info,
   Sparkles,
+  LogOut,
+  LogIn,
+  Eye,
 } from "lucide-react"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { useAuth } from "@/hooks/use-auth"
 
 // Definiciones de los elementos de la barra lateral con descripciones
-const menuItems = {
+interface MenuItem {
+  id: string
+  label: string
+  icon: JSX.Element
+  href: string
+  description: string
+  highlight?: boolean
+}
+
+const menuItems: { main: MenuItem[]; utilities: MenuItem[] } = {
   main: [
     {
       id: "dashboard",
@@ -63,9 +76,18 @@ const menuItems = {
       id: "inteligencia-comercial",
       label: "Inteligencia Comercial - AI",
       icon: <Sparkles className="h-5 w-5" />,
-      href: "/utilidades/inteligencia-comercial",
+      href: "/dashboard/inteligencia/zafra",
       description:
         "Análisis competitivo del mercado mundial de azúcar y herramientas de inteligencia comercial impulsadas por IA.",
+      highlight: true,
+    },
+    {
+      id: "visor-cana",
+      label: "( Visor-Caña )",
+      icon: <Eye className="h-5 w-5" />,
+      href: "/visor-cana",
+      description:
+        "Diagnóstico inteligente de fitopatologías en campo con modelos de visión avanzados.",
       highlight: true,
     },
   ],
@@ -147,21 +169,24 @@ const menuItems = {
 export default function Sidebar() {
   const [utilitiesOpen, setUtilitiesOpen] = useState(true)
   const pathname = usePathname()
+  const { user, logout } = useAuth()
 
   return (
-    <TooltipProvider delayDuration={300}>
-      <div className="w-64 h-full bg-[#0a0f29] border-r border-[#1a2040] flex flex-col">
-        <div className="p-4 border-b border-[#1a2040]">
-          <h1 className="text-xl font-bold">
-            <span style={{ color: "#4285F4" }}>A</span>
-            <span style={{ color: "#EA4335" }}>gro</span>
-            <span style={{ color: "#5F6368" }}>-</span>
-            <span style={{ color: "#FBBC05" }}>I</span>
-            <span style={{ color: "#34A853" }}>A</span>
-          </h1>
-        </div>
+    <div className="w-64 h-full bg-[#111936] border-r border-[#1a2040] flex flex-col">
+      <div className="p-6 border-b border-[#1a2040] flex items-center justify-center">
+        <h1 className="text-2xl font-bold tracking-tight">
+          <span className="text-blue-500">A</span>
+          <span className="text-red-500">g</span>
+          <span className="text-red-500">r</span>
+          <span className="text-red-500">o</span>
+          <span className="text-gray-500">-</span>
+          <span className="text-orange-500">I</span>
+          <span className="text-green-500">A</span>
+        </h1>
+      </div>
 
-        <nav className="flex-1 overflow-y-auto py-4">
+      <nav className="flex-1 overflow-y-auto py-6 px-3">
+        <TooltipProvider delayDuration={300}>
           <ul className="space-y-1">
             {/* Elementos principales */}
             {menuItems.main.map((item) => (
@@ -171,51 +196,42 @@ export default function Sidebar() {
                     <Link
                       href={item.href}
                       className={`
-            flex items-center px-4 py-2.5 text-sm 
-            ${item.highlight ? "relative" : ""}
-            ${
-              pathname === item.href || (item.highlight && pathname?.includes(item.href))
-                ? item.highlight
-                  ? "text-[#00a8ff] bg-gradient-to-r from-[#0a84ff]/20 to-[#1a2040]"
-                  : "text-[#00a8ff] bg-[#1a2040]"
-                : item.highlight
-                  ? "text-[#00a8ff] hover:bg-[#1a2040]"
-                  : "text-gray-300 hover:bg-[#1a2040] hover:text-[#00a8ff]"
-            }
+            flex items-center px-4 py-3 text-sm font-medium rounded-lg transition-colors
+            ${pathname === item.href || (item.highlight && pathname?.includes(item.href))
+                          ? "bg-[#00a8ff] text-white"
+                          : "text-gray-400 hover:bg-[#1a2040] hover:text-white"
+                        }
           `}
                     >
-                      {item.highlight && <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#00a8ff]"></div>}
-                      <span className={`mr-3 ${item.highlight ? "text-[#00a8ff]" : ""}`}>{item.icon}</span>
+                      <span className="mr-3">{item.icon}</span>
                       <span>{item.label}</span>
                       {item.highlight && (
-                        <span className="ml-auto bg-[#0a84ff]/20 text-[#00a8ff] text-xs px-1.5 py-0.5 rounded-sm flex items-center">
+                        <span className="ml-auto text-xs bg-white/20 text-white px-2 py-0.5 rounded-full flex items-center">
                           <Sparkles className="h-3 w-3 mr-1" />
                           IA
                         </span>
                       )}
                     </Link>
                   </TooltipTrigger>
-                  <TooltipContent side="right" className="max-w-xs bg-[#111936] text-white border-[#1a2040]">
+                  <TooltipContent side="right" className="bg-[#1a2040] text-white border-[#2d3748]">
                     <p className="text-sm">{item.description}</p>
                   </TooltipContent>
                 </Tooltip>
               </li>
             ))}
 
-            {/* Utilities Section - More subtle heading */}
-            <li className="py-2">
+            {/* Utilities Section */}
+            <li className="pt-6 pb-2">
               <button
                 onClick={() => setUtilitiesOpen(!utilitiesOpen)}
-                className="flex items-center justify-between w-full px-4 py-2 text-sm font-medium text-gray-300 hover:bg-[#1a2040]"
+                className="flex items-center justify-between w-full px-4 py-2 text-xs font-bold uppercase tracking-wider text-gray-500 hover:text-white transition-colors"
               >
-                <div className="flex items-center">
-                  <span className="text-xs font-semibold tracking-wider text-gray-500">Herramientas</span>
-                </div>
-                {utilitiesOpen ? <ChevronDown className="h-4 w-4" /> : <ChevronRight className="h-4 w-4" />}
+                <span>Herramientas</span>
+                {utilitiesOpen ? <ChevronDown className="h-3 w-3" /> : <ChevronRight className="h-3 w-3" />}
               </button>
 
               {utilitiesOpen && (
-                <ul className="space-y-1 mt-1">
+                <ul className="space-y-1 mt-2">
                   {menuItems.utilities.map((item) => (
                     <li key={item.id}>
                       <Tooltip>
@@ -223,31 +239,18 @@ export default function Sidebar() {
                           <Link
                             href={item.href}
                             className={`
-                              flex items-center px-4 py-2 text-sm 
-                              ${item.highlight ? "relative" : ""}
-                              ${
-                                pathname?.includes(item.href)
-                                  ? item.highlight
-                                    ? "text-[#00a8ff] bg-gradient-to-r from-[#0a84ff]/20 to-[#1a2040]"
-                                    : "text-[#00a8ff] bg-[#1a2040]"
-                                  : item.highlight
-                                    ? "text-[#00a8ff] hover:bg-[#1a2040]"
-                                    : "text-gray-300 hover:bg-[#1a2040] hover:text-[#00a8ff]"
+                              flex items-center px-4 py-2.5 text-sm rounded-lg transition-colors
+                              ${pathname?.includes(item.href)
+                                ? "bg-[#1a2040] text-white"
+                                : "text-gray-400 hover:bg-[#1a2040] hover:text-white"
                               }
                             `}
                           >
-                            {item.highlight && <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#00a8ff]"></div>}
-                            <span className={`mr-3 ${item.highlight ? "text-[#00a8ff]" : ""}`}>{item.icon}</span>
+                            <span className="mr-3 opacity-70">{item.icon}</span>
                             <span>{item.label}</span>
-                            {item.highlight && (
-                              <span className="ml-auto bg-[#0a84ff]/20 text-[#00a8ff] text-xs px-1.5 py-0.5 rounded-sm flex items-center">
-                                <Sparkles className="h-3 w-3 mr-1" />
-                                IA
-                              </span>
-                            )}
                           </Link>
                         </TooltipTrigger>
-                        <TooltipContent side="right" className="max-w-xs bg-[#111936] text-white border-[#1a2040]">
+                        <TooltipContent side="right" className="bg-[#1a2040] text-white border-[#2d3748]">
                           <p className="text-sm">{item.description}</p>
                         </TooltipContent>
                       </Tooltip>
@@ -257,19 +260,42 @@ export default function Sidebar() {
               )}
             </li>
           </ul>
-        </nav>
+        </TooltipProvider>
+      </nav>
 
-        {/* Ayuda para nuevos usuarios */}
-        <div className="p-4 border-t border-[#1a2040]">
+      {/* Footer */}
+      <div className="p-4 border-t border-[#1a2040] bg-[#0d1226]">
+        <Link
+          href="/guia-usuario"
+          className="flex items-center justify-center w-full px-3 py-2 text-sm text-[#00a8ff] bg-[#00a8ff]/10 rounded-lg hover:bg-[#00a8ff]/20 transition-colors mb-3"
+        >
+          <Info className="h-4 w-4 mr-2" />
+          <span>Guía de usuario</span>
+        </Link>
+
+        {user ? (
+          <div className="flex flex-col gap-2">
+            <div className="px-3 py-1 text-xs text-gray-500 text-center truncate font-mono">
+              {user.sub || user.email || "Usuario"}
+            </div>
+            <button
+              onClick={logout}
+              className="flex items-center justify-center w-full px-3 py-2 text-sm text-red-400 bg-red-400/10 rounded-lg hover:bg-red-400/20 transition-colors"
+            >
+              <LogOut className="h-4 w-4 mr-2" />
+              <span>Cerrar Sesión</span>
+            </button>
+          </div>
+        ) : (
           <Link
-            href="/guia-usuario"
-            className="flex items-center justify-center w-full px-3 py-2 text-sm text-[#00a8ff] bg-[#1a2040] rounded-md hover:bg-[#2a3050]"
+            href="/login"
+            className="flex items-center justify-center w-full px-3 py-2 text-sm text-green-400 bg-green-400/10 rounded-lg hover:bg-green-400/20 transition-colors"
           >
-            <Info className="h-4 w-4 mr-2" />
-            <span>Guía de usuario</span>
+            <LogIn className="h-4 w-4 mr-2" />
+            <span>Iniciar Sesión</span>
           </Link>
-        </div>
+        )}
       </div>
-    </TooltipProvider>
+    </div>
   )
 }

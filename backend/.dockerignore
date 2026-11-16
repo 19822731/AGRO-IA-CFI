@@ -1,0 +1,13 @@
+.git
+.venv
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+sugartrade_contents
+Algoritmo v.2 
+scripts_ia.zip
+sugartrade12123212.zip
+tests
+tests_perf
