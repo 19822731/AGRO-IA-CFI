@@ -31,9 +31,9 @@ pytest backend/tests/tests_p22/test_data_ingesta_idempotency.py \
        backend/tests/tests_p23/test_drift_contract_sqlite.py \
        backend/tests/tests_p24/test_prd_idempotency.py -v --disable-warnings
 
-# 4. Verificación de Pipeline de Visión Computacional
-echo -e "\n${YELLOW}[Paso 4/4] Verificando tests de arquitectura del módulo de visión...${NC}"
-pytest ml_engine/test_arquitectura.py -v --disable-warnings
+# 4. Verificación de Pipeline de Visión Computacional (Visor Caña Pro)
+echo -e "\n${YELLOW}[Paso 4/4] Verificando tests del clasificador Visor Caña Pro (DINOv2)...${NC}"
+python3 ml_engine/test_visor_cana.py || pytest ml_engine/test_visor_cana.py -v --disable-warnings
 
 echo -e "\n${GREEN}==================================================================${NC}"
 echo -e "${GREEN}   ✓ TODAS LAS PRUEBAS DE AUDITORÍA SUPERADAS EXITOSAMENTE        ${NC}"
