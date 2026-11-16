@@ -16,7 +16,7 @@ if not api_key:
     sys.exit(1)
 
 client = genai.Client(api_key=api_key)
-MODEL_NAME = "gemini-2.5-pro"
+MODEL_NAME = "gemini-2.5-flash"
 
 # =====================================================================
 # ESTRUCTURAS DE DATOS ESTRUCTURADOS (PYDANTIC)
