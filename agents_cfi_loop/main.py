@@ -7,7 +7,7 @@ from google.genai import types
 from pydantic import BaseModel, Field
 
 # ---------------------------------------------------------------------
-# VERIFICACIÓN DE CLAVE API
+# VERIFICACIÓN DE CLAVE API Y SELECCIÓN AUTOMÁTICA DE MODELO
 # ---------------------------------------------------------------------
 api_key = os.getenv("GEMINI_API_KEY")
 if not api_key:
@@ -16,7 +16,16 @@ if not api_key:
     sys.exit(1)
 
 client = genai.Client(api_key=api_key)
-MODEL_NAME = "gemini-2.5-flash"
+
+# Auto-detección del modelo activo habilitado en tu cuenta
+try:
+    available_models = [m.name.replace("models/", "") for m in client.models.list()]
+    preferred = ["gemini-2.0-flash", "gemini-1.5-flash", "gemini-2.5-flash", "gemini-2.5-pro", "gemini-1.5-pro"]
+    MODEL_NAME = next((m for m in preferred if m in available_models), available_models[0] if available_models else "gemini-2.0-flash")
+    print(f"🤖 Modelo activo seleccionado automáticamente: {MODEL_NAME}")
+except Exception as e:
+    MODEL_NAME = "gemini-2.0-flash"
+    print(f"⚠️ No se pudo listar modelos, usando fallback: {MODEL_NAME}")
 
 # =====================================================================
 # ESTRUCTURAS DE DATOS ESTRUCTURADOS (PYDANTIC)
