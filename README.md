@@ -10,6 +10,14 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16.3-4169E1?style=flat-square&logo=postgresql&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Compose%202.27-2496ED?style=flat-square&logo=docker&logoColor=white)
 
+> [!IMPORTANT]
+> **AVISO DE CONFIDENCIALIDAD, SECRETO COMERCIAL Y USO RESTRINGIDO (CFI)**  
+> **Marco Legal:** Ley N° 24.766 (Protección de Información Confidencial / Secreto Comercial), Ley N° 11.723 (Régimen Legal de la Propiedad Intelectual de Software) y bases de la convocatoria del CFI.  
+> El contenido de este repositorio (código fuente, modelos neuronales, pesos sinápticos entrenados, esquemas de base de datos, algoritmos predictivos y documentación técnica) constituye **propiedad intelectual exclusiva y secreto comercial de AGRO-IA S.A.S. (CUIT 30-71931274-4)**.  
+> El acceso a este material se otorga **única y exclusivamente con fines de auditoría técnica y evaluación de mérito** al equipo evaluador del **Consejo Federal de Inversiones (CFI)** en el marco de la convocatoria *Fondo de Inversión en Innovación*.  
+> **Queda terminantemente prohibida** la reproducción, distribución, copia, descompilación, ingeniería inversa, cesión a terceros o utilización con fines comerciales o de desarrollo ajeno sin la previa autorización expresa y por escrito de la titular.  
+> Contacto de Propiedad Intelectual: `arquimedescarrizo@agro-ia.com` / `arquimedescarrizo@gmail.com`.
+
 ---
 
 ### Datos de la Entidad Postulante
