@@ -1,12 +1,21 @@
 import os
+import sys
 import json
 from datetime import datetime
 from google import genai
 from google.genai import types
 from pydantic import BaseModel, Field
 
-# Inicialización del cliente de la API de Gemini
-client = genai.Client()
+# ---------------------------------------------------------------------
+# VERIFICACIÓN DE CLAVE API
+# ---------------------------------------------------------------------
+api_key = os.getenv("GEMINI_API_KEY")
+if not api_key:
+    print("❌ ERROR: La variable de entorno GEMINI_API_KEY no está configurada en la terminal.")
+    print("👉 Ejecuta primero: export GEMINI_API_KEY='tu_api_key_de_google'")
+    sys.exit(1)
+
+client = genai.Client(api_key=api_key)
 MODEL_NAME = "gemini-2.5-pro"
 
 # =====================================================================
@@ -63,9 +72,7 @@ def append_to_audit_log(observation: str, iteration: int, role_summary: str, fil
 def run_cfi_agent_loop(user_observation: str, max_iterations: int = 3):
     print(f"\n🚀 INICIANDO BUCLE MULTI-AGENTE PARA: '{user_observation}'\n")
     
-    # -----------------------------------------------------------------
     # AGENTE 1: ANALISTA CFI
-    # -----------------------------------------------------------------
     print("🔹 [AGENTE 1 - Analista CFI]: Auditando observación y construyendo checklist...")
     prompt_analista = f"""
     Eres el Agente Analista CFI del proyecto Agro-IA SAS.
@@ -90,9 +97,7 @@ def run_cfi_agent_loop(user_observation: str, max_iterations: int = 3):
     for iteration in range(1, max_iterations + 1):
         print(f"\n🔄 --- ITERACIÓN {iteration} DE {max_iterations} ---")
         
-        # -------------------------------------------------------------
-        # AGENTE 2: DESARROLLADOR / CODER
-        # -------------------------------------------------------------
+        # AGENTE 2: CODER
         print("🔹 [AGENTE 2 - Coder]: Elaborando solución / modificaciones...")
         prompt_coder = f"""
         Eres el Agente Desarrollador / Coder de Agro-IA SAS.
@@ -112,9 +117,7 @@ def run_cfi_agent_loop(user_observation: str, max_iterations: int = 3):
         propuesta_codigo = res_coder.text
         print("   ✓ Propuesta técnica generada por el Coder.")
 
-        # -------------------------------------------------------------
-        # AGENTE 3: REVISOR QA TÉCNICO
-        # -------------------------------------------------------------
+        # AGENTE 3: QA REVIEWER
         print("🔹 [AGENTE 3 - Revisor QA]: Auditando calidad, sintaxis y consistencia...")
         prompt_qa = f"""
         Eres el Revisor QA Técnico de Agro-IA.
@@ -137,9 +140,7 @@ def run_cfi_agent_loop(user_observation: str, max_iterations: int = 3):
         qa_report: RevisionQA = RevisionQA.model_validate_json(res_qa.text)
         print(f"   ✓ Dictamen QA: {'APROBADO' if qa_report.aprobado else 'RECHAZADO'}")
 
-        # -------------------------------------------------------------
-        # AGENTE 4: AUDITOR LOOP CONTROLLER
-        # -------------------------------------------------------------
+        # AGENTE 4: AUDITOR
         print("🔹 [AGENTE 4 - Auditor Controller]: Evaluando conformidad CFI...")
         prompt_auditor = f"""
         Eres el Agente Auditor del CFI para Agro-IA SAS.
@@ -184,6 +185,5 @@ def run_cfi_agent_loop(user_observation: str, max_iterations: int = 3):
             )
 
 if __name__ == "__main__":
-    # Prueba inicial del bucle
     observacion_test = "Ajuste de Cashflow mensual a 36 meses en docs_cfi/Agro-IA-CFI-v6-Cashflow-Mensual.xlsx y actualización de comisión base en backend/app/core/config.py"
     run_cfi_agent_loop(observacion_test)
