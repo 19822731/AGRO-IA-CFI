@@ -1,0 +1,30 @@
++---------------------------------------------------------------------------------------------------------------------------------------+
+|AGRO-IA SAS - ZAVALIA 240 - YERBA BUENA - TUCUMAN                               O R D E N   D E   C O M P R A   Nro.:  00001-00003343 |
+|---------------------------------------------------------------------------------------------------------------------------------------|
+|   Proveedor    : COOP. TRABAJADORES UNIDOS DE TRABAJO AGROPECUARIO LTDA       Fecha Emisión ......: 29/07/2026                        |
+|                  CUIT: 30-52179790-4                                           Fecha Vigencia .....:                                  |
+|                  BELLA VISTA - TUCUMÁN                                        Fecha Entrega ......: A CONVENIR                       |
+|   Cond.Compra  : TRANSFERENCIA O E-CHEQ AL DÍA POST CARGA                                                                             |
+|   Observaciones: OPERACIÓN POR CTA. Y ORDEN COMITENTE                         Depósito Entrega  ..: 01  DEPÓSITO PROPIO                   |
++--------------------------------------------------------------------------    ---------------------------------------------------------+
+| Código de Artículo   | Descripción                   Descripción          |Código Artículo|Cantidad  | Precio    |  %    | Importe    |
+|Proved./Tango/Depósito|                               Adicional            |Proveedor      |          | Unitario  | Bon.  |            |
++---------------------------------------------------------------------------------------------------------------------------------------+
+|       105      01    | AZUCAR COMUN TIPO A           BELLA VISTA          |               |   560.00 | 29752.0661|  0.00 |16,661,157.02|
+|                      | ZAFRA 2026                                         |               |          |           |       |            |
+|                      |                                                    |               |          |           |       |            |
+|                      |                                                    |               |          |           |       |            |
+|                      |                                                    |               |          |           |       |            |
+|                      |                                                    |               |          |           |       |            |
+
+                         OP. POR CTA Y ORDEN COMITENTE
+                         PRECIO FINAL: $36.000 / BOLSA (IVA INCLUIDO)
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+|                  Pago: Transferencia en cta / E-cheq al día post carga                            |  Subtotal   :     16,661,157.02    |
+|                  Entrega/Carga: Bella Vista                                                       |  Bonif.     :              0.00    |
+|                                                                                                   |  I.V.A.(21%):      3,498,842.98    |
+|                                                                                                   |  Imp. Int.  :              0.00    |
+|                                                                                                   |  Total      :     20,160,000.00    |
++---------------------------------------------------------------------------------------------------------------------------------------+
+. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     . . . . . . . . . . . . . . . . . . . . . . . . . . . .
